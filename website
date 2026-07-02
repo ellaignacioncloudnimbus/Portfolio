@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ella Joy Ignacio | Content Operations & Social Media Support</title>
+  <meta name="description" content="Ella Joy Ignacio helps creators, founders, and small teams with YouTube operations, short-form content, thumbnails, website management, admin support, and social media management." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #fff9f3;
+      --bg-2: #f7eee4;
+      --card: rgba(255, 255, 255, 0.82);
+      --card-solid: #ffffff;
+      --text: #34231d;
+      --muted: #7d6b5f;
+      --border: rgba(102, 77, 61, 0.14);
+      --accent: #e88394;
+      --accent-2: #9f6bff;
+      --accent-soft: rgba(232, 131, 148, 0.14);
+      --shadow: 0 24px 70px rgba(79, 48, 36, 0.10);
+      --shadow-soft: 0 14px 40px rgba(79, 48, 36, 0.08);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1160px;
+      --transition: 240ms ease;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #0d0b0b;
+      --bg-2: #171313;
+      --card: rgba(28, 22, 22, 0.80);
+      --card-solid: #171313;
+      --text: #fff4ec;
+      --muted: #b9a99f;
+      --border: rgba(255, 238, 226, 0.12);
+      --accent: #ff9aaa;
+      --accent-2: #b795ff;
+      --accent-soft: rgba(255, 154, 170, 0.14);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+      --shadow-soft: 0 14px 40px rgba(0, 0, 0, 0.26);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top left, var(--accent-soft), transparent 30%),
+        radial-gradient(circle at 85% 12%, rgba(159,107,255,.12), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background var(--transition), color var(--transition);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--bg) 78%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-family: "Playfair Display", serif; font-size: 24px; font-weight: 800; letter-spacing: -0.03em; }
+    .brand span { color: var(--accent); font-style: italic; }
+    .nav-links { display: flex; gap: 24px; align-items: center; color: var(--muted); font-size: 14px; font-weight: 700; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .theme-toggle {
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 10px 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      box-shadow: var(--shadow-soft);
+      transition: transform var(--transition), border-color var(--transition), background var(--transition);
+    }
+    .theme-toggle:hover { transform: translateY(-2px); border-color: var(--accent); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 13px 20px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition);
+      cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--text); color: var(--bg); box-shadow: var(--shadow-soft); }
+    .btn-primary:hover { background: var(--accent); color: #fff; }
+    .btn-secondary { border-color: var(--border); background: var(--card); color: var(--text); }
+    .btn-secondary:hover { border-color: var(--accent); }
+
+    section { padding: 96px 0; }
+    .section-tag { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); font-size: 12px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
+    h1, h2 { font-family: "Playfair Display", serif; letter-spacing: -0.05em; line-height: 1.05; }
+    h1 { font-size: clamp(44px, 8vw, 86px); max-width: 780px; }
+    h2 { font-size: clamp(34px, 5vw, 58px); max-width: 780px; }
+    h3 { line-height: 1.2; }
+    .lead { color: var(--muted); font-size: clamp(17px, 2vw, 20px); max-width: 760px; margin-top: 20px; }
+    .accent { color: var(--accent); font-style: italic; }
+
+    .hero { padding: 110px 0 80px; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin: 34px 0 22px; }
+
+    .hero-mini-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 8px 0 30px;
+    }
+    .hero-mini-badges span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--card-solid) 86%, transparent);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 10px 15px;
+      font-size: 13px;
+      font-weight: 900;
+      box-shadow: var(--shadow-soft);
+      transition: transform var(--transition), border-color var(--transition), background var(--transition);
+    }
+    .hero-mini-badges span:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .proof-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
+    .proof-card { border: 1px solid var(--border); background: var(--card); border-radius: var(--radius-md); padding: 20px; box-shadow: var(--shadow-soft); }
+    .proof-card strong { display: block; font-size: 26px; font-weight: 900; }
+    .proof-card span { color: var(--muted); font-size: 13px; font-weight: 700; }
+    .hero-visual { position: relative; }
+    .profile-card {
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, var(--card), color-mix(in srgb, var(--accent-soft) 45%, transparent));
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      min-height: 520px;
+      display: grid;
+      align-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      top: -80px;
+      right: -70px;
+    }
+    .photo-placeholder {
+      border: 1px dashed var(--border);
+      border-radius: 26px;
+      height: 330px;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      background: color-mix(in srgb, var(--card-solid) 70%, transparent);
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 20px;
+      font-weight: 800;
+    }
+    .floating-note { display: none; }
+
+    .about { background: color-mix(in srgb, var(--bg-2) 82%, transparent); border-block: 1px solid var(--border); }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 38px; align-items: start; }
+    .snapshot-card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      position: sticky;
+      top: 102px;
+    }
+    .snapshot-head { display: flex; gap: 18px; align-items: center; margin-bottom: 24px; }
+    .avatar-placeholder { width: 86px; height: 86px; border-radius: 26px; display: grid; place-items: center; border: 1px dashed var(--border); color: var(--muted); background: var(--accent-soft); font-size: 11px; text-align: center; font-weight: 800; }
+    .snapshot-head h3 { font-size: 22px; }
+    .snapshot-head p { color: var(--muted); font-weight: 700; font-size: 14px; }
+    .snapshot-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .mini-card { border: 1px solid var(--border); border-radius: 18px; padding: 16px; background: color-mix(in srgb, var(--card-solid) 78%, transparent); transition: transform var(--transition), border-color var(--transition); }
+    .mini-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .mini-card i { color: var(--accent); margin-bottom: 10px; }
+    .mini-card small { color: var(--muted); display: block; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; font-size: 10px; }
+    .mini-card strong { display: block; font-size: 14px; margin-top: 4px; }
+    .about-copy { border: 1px solid var(--border); border-radius: var(--radius-xl); background: var(--card); padding: 36px; box-shadow: var(--shadow-soft); }
+    .about-copy p { color: var(--muted); margin-top: 18px; font-size: 17px; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px; }
+    .service-card { border: 1px solid var(--border); background: var(--card); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-soft); min-height: 230px; transition: transform var(--transition), border-color var(--transition); }
+    .service-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+    .icon-chip { width: 48px; height: 48px; border-radius: 16px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; margin-bottom: 20px; font-size: 20px; }
+    .service-card h3 { font-size: 18px; margin-bottom: 10px; }
+    .service-card p { color: var(--muted); font-size: 14.5px; }
+
+    .workspace { background: color-mix(in srgb, var(--bg-2) 82%, transparent); border-block: 1px solid var(--border); }
+    .workspace-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 44px; }
+    .case-card { border: 1px solid var(--border); background: var(--card); border-radius: var(--radius-xl); padding: 24px; box-shadow: var(--shadow); overflow: hidden; }
+    .preview { border-radius: 24px; overflow: hidden; border: 1px solid var(--border); min-height: 285px; background: #101010; margin-bottom: 24px; position: relative; }
+    .youtube-preview { background: linear-gradient(145deg, #111, #2a171a); display: grid; align-content: end; }
+    .youtube-preview::before { content: "Add James channel thumbnail here"; color: rgba(255,255,255,.5); position: absolute; inset: 0; display: grid; place-items: center; font-weight: 800; font-size: 13px; }
+    .play { position: absolute; width: 68px; height: 68px; border-radius: 50%; background: #ff0033; color: #fff; display: grid; place-items: center; left: 50%; top: 44%; transform: translate(-50%, -50%); box-shadow: 0 20px 50px rgba(255,0,51,.34); z-index: 2; }
+    .yt-bar { position: relative; z-index: 2; background: rgba(0,0,0,.78); padding: 18px; display: flex; gap: 12px; align-items: center; color: #fff; }
+    .yt-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--accent); }
+    .yt-bar span { display: block; color: rgba(255,255,255,.62); font-size: 12px; }
+    .website-preview { background: #090d12; display: flex; flex-direction: column; }
+    .browser-top { background: #f1eee9; padding: 12px; display: flex; align-items: center; gap: 9px; }
+    .dot { width: 10px; height: 10px; background: #b8ada4; border-radius: 50%; }
+    .url { margin-left: 8px; background: #fff; border-radius: 10px; padding: 7px 14px; color: #111; font-size: 12px; font-weight: 900; flex: 1; }
+    .website-body { flex: 1; display: grid; place-items: center; color: #56f18b; text-align: center; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 800; padding: 24px; }
+    .case-card h3 { font-size: 24px; margin-bottom: 8px; }
+    .case-card p { color: var(--muted); margin: 14px 0 22px; }
+    .case-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .bento-grid { display: grid; grid-template-columns: 1.25fr .75fr 1fr; gap: 18px; margin-top: 44px; }
+    .bento { border: 1px solid var(--border); background: var(--card); border-radius: var(--radius-lg); padding: 24px; min-height: 180px; box-shadow: var(--shadow-soft); transition: transform var(--transition), border-color var(--transition); }
+    .bento:hover { transform: translateY(-5px); border-color: var(--accent); }
+    .bento.big { grid-row: span 2; min-height: 378px; background: linear-gradient(145deg, var(--card), var(--accent-soft)); }
+    .bento.wide { grid-column: span 2; }
+    .bento i { color: var(--accent); font-size: 24px; margin-bottom: 18px; }
+    .bento h3 { font-size: 18px; margin-bottom: 9px; }
+    .bento p { color: var(--muted); font-size: 14px; }
+
+    .experience-list { display: grid; gap: 18px; margin-top: 44px; }
+    .exp-card { display: grid; grid-template-columns: 270px 1fr; gap: 28px; border: 1px solid var(--border); background: var(--card); border-radius: var(--radius-lg); padding: 26px; box-shadow: var(--shadow-soft); }
+    .exp-card h3 { font-size: 20px; }
+    .exp-card p { color: var(--muted); margin-bottom: 16px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tags span { border: 1px solid var(--border); background: color-mix(in srgb, var(--bg-2) 70%, transparent); border-radius: 999px; padding: 7px 12px; color: var(--muted); font-size: 12px; font-weight: 800; }
+
+    .tools { background: color-mix(in srgb, var(--bg-2) 82%, transparent); border-block: 1px solid var(--border); }
+    .tool-groups { display: grid; gap: 22px; margin-top: 44px; }
+    .tool-group { border: 1px solid var(--border); background: var(--card); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-soft); }
+    .tool-group h3 { margin-bottom: 16px; }
+    .tool-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .tool { display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--border); background: color-mix(in srgb, var(--card-solid) 82%, transparent); border-radius: 15px; padding: 12px 15px; font-weight: 900; font-size: 14px; }
+    .tool i { color: var(--accent); min-width: 18px; text-align: center; }
+
+    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px; counter-reset: step; }
+    .process-card { counter-increment: step; border: 1px solid var(--border); background: var(--card); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-soft); position: relative; overflow: hidden; }
+    .process-card::before { content: "0" counter(step); font-family: "Playfair Display", serif; position: absolute; right: 18px; top: 8px; color: var(--accent-soft); font-size: 70px; font-weight: 900; line-height: 1; }
+    .process-card h3 { position: relative; font-size: 18px; margin-bottom: 10px; }
+    .process-card p { position: relative; color: var(--muted); font-size: 14.5px; }
+
+    .cta { text-align: center; }
+    .cta-box { border: 1px solid var(--border); background: linear-gradient(145deg, var(--card), var(--accent-soft)); border-radius: var(--radius-xl); padding: 56px 28px; box-shadow: var(--shadow); }
+    .cta-box h2, .cta-box .lead { margin-inline: auto; }
+    .cta-actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+    footer { padding: 52px 0 32px; border-top: 1px solid var(--border); background: var(--bg-2); text-align: center; }
+    .socials { display: flex; justify-content: center; gap: 12px; margin: 26px 0; }
+    .socials a { width: 48px; height: 48px; border: 1px solid var(--border); background: var(--card); border-radius: 50%; display: grid; place-items: center; color: var(--text); transition: transform var(--transition), background var(--transition); }
+    .socials a:hover { transform: translateY(-4px); background: var(--accent); color: #fff; }
+    .footer-note { color: var(--muted); font-size: 13px; }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 700ms ease, transform 700ms ease; }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .stagger > * { opacity: 0; transform: translateY(18px); transition: opacity 650ms ease, transform 650ms ease; }
+    .stagger.is-visible > * { opacity: 1; transform: translateY(0); }
+    .stagger.is-visible > *:nth-child(2) { transition-delay: 80ms; }
+    .stagger.is-visible > *:nth-child(3) { transition-delay: 140ms; }
+    .stagger.is-visible > *:nth-child(4) { transition-delay: 200ms; }
+    .stagger.is-visible > *:nth-child(5) { transition-delay: 260ms; }
+    .stagger.is-visible > *:nth-child(6) { transition-delay: 320ms; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+      .reveal, .stagger > * { opacity: 1 !important; transform: none !important; }
+    }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .hero-grid, .about-grid, .workspace-grid, .exp-card { grid-template-columns: 1fr; }
+      .snapshot-card { position: relative; top: 0; }
+      .services-grid, .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .bento-grid { grid-template-columns: repeat(2, 1fr); }
+      .bento.big, .bento.wide { grid-column: auto; grid-row: auto; min-height: 180px; }
+      .profile-card { min-height: 440px; }
+    }
+    @media (max-width: 680px) {
+      .wrap { width: min(100% - 28px, var(--max)); }
+      nav { min-height: 70px; }
+      .brand { font-size: 20px; }
+      .nav-actions .btn { display: none; }
+      section { padding: 72px 0; }
+      .hero { padding-top: 76px; }
+      .proof-row, .snapshot-grid, .services-grid, .workspace-grid, .bento-grid, .process-grid { grid-template-columns: 1fr; }
+      .hero-mini-badges span { width: 100%; justify-content: center; }
+      .about-copy, .snapshot-card, .case-card, .cta-box { padding: 22px; }
+      .preview { min-height: 230px; }
+      .floating-note { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap">
+      <a href="#top" class="brand">Ella Joy <span>Ignacio</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#work">Client Work</a>
+        <a href="#tools">Tools</a>
+        <a href="#process">Process</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode"><i class="fa-solid fa-moon"></i><span>Dark</span></button>
+        <a href="#contact" class="btn btn-primary">Work With Me</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero reveal">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="section-tag"><i class="fa-solid fa-sparkles"></i> Content Operations & Social Media Support</div>
+          <h1>I help creators stay <span class="accent">consistent online</span> without doing everything alone.</h1>
+          <p class="lead">I support YouTube creators, founders, and small teams with Shorts, thumbnails, carousels, website updates, blog uploads, email campaigns, admin work, and social media management.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact"><i class="fa-solid fa-paper-plane"></i> Work With Me</a>
+            <a class="btn btn-secondary" href="#work"><i class="fa-solid fa-play"></i> View Client Work</a>
+          </div>
+
+          <div class="hero-mini-badges">
+            <span><i class="fa-brands fa-youtube"></i> YouTube Operations</span>
+            <span><i class="fa-solid fa-globe"></i> Website Management</span>
+            <span><i class="fa-solid fa-share-nodes"></i> Social Media</span>
+            <span><i class="fa-solid fa-envelope-open-text"></i> Email Marketing</span>
+          </div>
+
+          <div class="proof-row stagger">
+            <div class="proof-card"><strong>100+</strong><span>short-form clips supported</span></div>
+            <div class="proof-card"><strong>5+</strong><span>content areas managed</span></div>
+            <div class="proof-card"><strong>Remote</strong><span>creator & admin support</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="profile-card">
+            <div class="photo-placeholder">Add Ella headshot here</div>
+            <div>
+              <h3>Behind-the-scenes content support for busy creators.</h3>
+              <p style="color: var(--muted); margin-top: 8px;">You create. I help organize, repurpose, publish, and manage the content system.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about reveal" id="about">
+      <div class="wrap about-grid">
+        <aside class="snapshot-card">
+          <div class="snapshot-head">
+            <div class="avatar-placeholder">Add<br>photo</div>
+            <div>
+              <h3>Ella Joy B. Ignacio</h3>
+              <p>Content Operations & Social Media Support</p>
+            </div>
+          </div>
+          <div class="snapshot-grid stagger">
+            <div class="mini-card"><i class="fa-solid fa-location-dot"></i><small>Based in</small><strong>BGC, Philippines</strong></div>
+            <div class="mini-card"><i class="fa-solid fa-graduation-cap"></i><small>Education</small><strong>BSBA Management</strong></div>
+            <div class="mini-card"><i class="fa-brands fa-youtube"></i><small>Focus</small><strong>YouTube Support</strong></div>
+            <div class="mini-card"><i class="fa-solid fa-globe"></i><small>Skill</small><strong>Website Management</strong></div>
+            <div class="mini-card"><i class="fa-solid fa-headset"></i><small>Experience</small><strong>Admin & CSR</strong></div>
+            <div class="mini-card"><i class="fa-solid fa-laptop"></i><small>Setup</small><strong>Remote-Friendly</strong></div>
+          </div>
+        </aside>
+        <div class="about-copy">
+          <div class="section-tag">About Me Snapshot</div>
+          <h2>Hi, I’m Ella Joy B. Ignacio</h2>
+          <p>I’m a 24-year-old content operations and social media support specialist based in BGC, Philippines. I graduated with a Bachelor of Science in Business Administration major in Management, and I’ve built experience across YouTube operations, social media management, website support, admin work, customer service, and digital marketing.</p>
+          <p>I work behind the scenes to help creators, founders, and businesses stay consistent online — from creating Shorts and thumbnails to managing content calendars, uploading blogs, supporting email campaigns, and organizing daily workflows.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#services">See What I Do</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/ella-joy-ignacio-2561aa291/" target="_blank" rel="noopener">View LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="reveal">
+      <div class="wrap">
+        <div class="section-tag">What I Can Help With</div>
+        <h2>Services that save you time and keep your brand active.</h2>
+        <p class="lead">I help you turn ideas, videos, and existing assets into content that is organized, published, and ready for your audience.</p>
+        <div class="services-grid stagger">
+          <div class="service-card"><div class="icon-chip"><i class="fa-brands fa-youtube"></i></div><h3>YouTube Content Operations</h3><p>Shorts, upload support, titles, descriptions, SEO, scheduling, and content organization.</p></div>
+          <div class="service-card"><div class="icon-chip"><i class="fa-solid fa-video"></i></div><h3>Short-Form Video Editing</h3><p>Turning long videos into TikToks, Reels, and Shorts with hooks, captions, and clean pacing.</p></div>
+          <div class="service-card"><div class="icon-chip"><i class="fa-solid fa-image"></i></div><h3>Thumbnail Design</h3><p>Clickable YouTube thumbnail support that matches the creator’s branding and video topic.</p></div>
+          <div class="service-card"><div class="icon-chip"><i class="fa-solid fa-layer-group"></i></div><h3>Carousels & Graphics</h3><p>LinkedIn and Instagram carousel posts, branded visuals, and simple educational graphics.</p></div>
+          <div class="service-card"><div class="icon-chip"><i class="fa-solid fa-share-nodes"></i></div><h3>Social Media Management</h3><p>Posting, scheduling, captions, content calendars, and support across Instagram, TikTok, LinkedIn, and YouTube.</p></div>
+          <div class="service-card"><div class="icon-chip"><i class="fa-solid fa-globe"></i></div><h3>Website Management</h3><p>Website updates, blog uploads, page formatting, link checks, and keeping content updated.</p></div>
+          <div class="service-card"><div class="icon-chip"><i class="fa-solid fa-envelope-open-text"></i></div><h3>Email Campaign Support</h3><p>Email formatting, campaign setup support, content organization, and simple newsletter assistance.</p></div>
+          <div class="service-card"><div class="icon-chip"><i class="fa-solid fa-clipboard-check"></i></div><h3>Admin & Client Support</h3><p>Reports, documentation, client communication, CSR support, and organized daily operations.</p></div>
+          <div class="service-card"><div class="icon-chip"><i class="fa-solid fa-pen-nib"></i></div><h3>Graphic Design</h3><p>Clean social graphics, presentation visuals, and branded content assets using tools like Canva.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace reveal" id="work">
+      <div class="wrap">
+        <div class="section-tag">Featured Client Workspace</div>
+        <h2>Currently supporting James Peralta’s creator brand.</h2>
+        <p class="lead">A premium workspace section that shows both YouTube content operations and website management.</p>
+        <div class="workspace-grid stagger">
+          <article class="case-card">
+            <div class="preview youtube-preview">
+              <div class="play"><i class="fa-solid fa-play"></i></div>
+              <div class="yt-bar"><div class="yt-avatar"></div><strong>James Peralta<span>@jamesperaltaSWE</span></strong></div>
+            </div>
+            <h3>YouTube Channel Management</h3>
+            <p>I support James Peralta’s content workflow through Shorts creation, thumbnail support, content repurposing, SEO titles and descriptions, publishing, and content organization.</p>
+            <div class="case-actions"><a href="https://www.youtube.com/@jamesperaltaSWE" target="_blank" rel="noopener" class="btn btn-primary">Watch Channel</a></div>
+          </article>
+          <article class="case-card">
+            <div class="preview website-preview">
+              <div class="browser-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><div class="url">jamesperalta.com</div></div>
+              <div class="website-body"><div>JAMESPERALTA.COM<br><span style="color:#7d8998;font-size:12px;">Add website preview image here</span></div></div>
+            </div>
+            <h3>Website Management</h3>
+            <p>I also support website-related content workflows such as blog uploads, website updates, content formatting, digital asset organization, and keeping website sections updated.</p>
+            <div class="case-actions"><a href="https://jamesperalta.com" target="_blank" rel="noopener" class="btn btn-secondary">Visit Website</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="wrap">
+        <div class="section-tag">What I Bring</div>
+        <h2>A reliable creative support system, not just random tasks.</h2>
+        <p class="lead">This section is designed as a bento grid so it feels more premium and less boring than a checklist.</p>
+        <div class="bento-grid stagger">
+          <div class="bento big"><i class="fa-solid fa-calendar-check"></i><h3>Content Consistency</h3><p>I help keep your content moving with organized posting, recurring workflows, and clear priorities.</p></div>
+          <div class="bento"><i class="fa-solid fa-bolt"></i><h3>Fast Communication</h3><p>Clear updates, quick replies, and reliable remote collaboration.</p></div>
+          <div class="bento"><i class="fa-solid fa-folder-tree"></i><h3>Organized Workflows</h3><p>Files, content calendars, links, and tasks stay easy to find.</p></div>
+          <div class="bento wide"><i class="fa-solid fa-magnifying-glass"></i><h3>Strong Attention to Detail</h3><p>I check formatting, captions, upload details, links, and visual consistency before things go live.</p></div>
+          <div class="bento"><i class="fa-solid fa-wand-magic-sparkles"></i><h3>Creative Editing & Design</h3><p>Short-form edits, thumbnails, carousels, and branded graphics.</p></div>
+          <div class="bento"><i class="fa-solid fa-chart-line"></i><h3>YouTube & Social Understanding</h3><p>I understand creator workflows, repurposing, thumbnails, hooks, and platform consistency.</p></div>
+          <div class="bento"><i class="fa-solid fa-headset"></i><h3>Admin & Client Support</h3><p>Client communication, reporting, documentation, and operational support.</p></div>
+          <div class="bento wide"><i class="fa-solid fa-laptop-code"></i><h3>Fast Learner With New Tools</h3><p>I can adapt to your current tools and workflow instead of forcing you to change your system.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="reveal">
+      <div class="wrap">
+        <div class="section-tag">Experience</div>
+        <h2>Experience that supports both creative and business operations.</h2>
+        <div class="experience-list stagger">
+          <article class="exp-card"><h3>YouTube & Content Operations</h3><div><p>Supporting creators with Shorts, thumbnails, SEO titles and descriptions, uploads, scheduling, and content repurposing.</p><div class="tags"><span>YouTube Shorts</span><span>Thumbnails</span><span>SEO</span><span>Uploads</span><span>Scheduling</span></div></div></article>
+          <article class="exp-card"><h3>Social Media Management</h3><div><p>Creating and organizing content for Instagram, TikTok, LinkedIn, and YouTube.</p><div class="tags"><span>Instagram</span><span>TikTok</span><span>LinkedIn</span><span>Carousels</span><span>Captions</span></div></div></article>
+          <article class="exp-card"><h3>Website, Blog & Email Support</h3><div><p>Helping with website updates, blog uploads, email campaign support, formatting, and content management.</p><div class="tags"><span>Website Management</span><span>Blog Uploading</span><span>Email Campaigns</span><span>Content Formatting</span></div></div></article>
+          <article class="exp-card"><h3>Admin, Client Support & Real Estate</h3><div><p>Previous real estate collection assistant experience with admin work, client communication, reports, documentation, and customer support.</p><div class="tags"><span>Admin Support</span><span>CSR</span><span>Collections</span><span>Reports</span><span>Real Estate</span></div></div></article>
+          <article class="exp-card"><h3>Bookkeeping & Operations Support</h3><div><p>Experience supporting bookkeeping and business operations tasks using Excel, QuickBooks, and SAP Business One.</p><div class="tags"><span>QuickBooks</span><span>SAP Business One</span><span>Microsoft Excel</span><span>Data Organization</span></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tools reveal" id="tools">
+      <div class="wrap">
+        <div class="section-tag">Tools I Work With</div>
+        <h2>Creative, admin, website, and business tools.</h2>
+        <p class="lead">The logos are kept consistent by using clean icon badges instead of random mismatched image sizes.</p>
+        <div class="tool-groups stagger">
+          <div class="tool-group"><h3>Creative & Content</h3><div class="tool-row"><span class="tool"><i class="fa-solid fa-scissors"></i>CapCut</span><span class="tool"><i class="fa-solid fa-wand-magic-sparkles"></i>OpusClip</span><span class="tool"><i class="fa-solid fa-palette"></i>Canva</span><span class="tool"><i class="fa-solid fa-brain"></i>Claude</span><span class="tool"><i class="fa-solid fa-robot"></i>ChatGPT</span></div></div>
+          <div class="tool-group"><h3>Project Management & Communication</h3><div class="tool-row"><span class="tool"><i class="fa-brands fa-slack"></i>Slack</span><span class="tool"><i class="fa-solid fa-list-check"></i>ClickUp</span><span class="tool"><i class="fa-brands fa-google"></i>Google Workspace</span><span class="tool"><i class="fa-solid fa-note-sticky"></i>Notion</span></div></div>
+          <div class="tool-group"><h3>Social Platforms</h3><div class="tool-row"><span class="tool"><i class="fa-brands fa-youtube"></i>YouTube</span><span class="tool"><i class="fa-brands fa-tiktok"></i>TikTok</span><span class="tool"><i class="fa-brands fa-instagram"></i>Instagram</span><span class="tool"><i class="fa-brands fa-linkedin"></i>LinkedIn</span></div></div>
+          <div class="tool-group"><h3>Business, Admin & CSR</h3><div class="tool-row"><span class="tool"><i class="fa-solid fa-book"></i>QuickBooks</span><span class="tool"><i class="fa-solid fa-building-columns"></i>SAP Business One</span><span class="tool"><i class="fa-solid fa-table"></i>Microsoft Excel</span><span class="tool"><i class="fa-solid fa-phone-volume"></i>Avaya</span><span class="tool"><i class="fa-solid fa-users-gear"></i>CRM / CSR Tools</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="reveal">
+      <div class="wrap">
+        <div class="section-tag">Certifications & Background</div>
+        <h2>Learning areas I can update as I add certificates.</h2>
+        <p class="lead">Keep these as editable placeholders, then replace them with exact LinkedIn certification names later.</p>
+        <div class="tags" style="margin-top:28px"><span>Digital Marketing</span><span>Social Media Management</span><span>Customer Service / CSR Tools</span><span>Business Administration</span><span>Content Creation & Design</span><span>Bookkeeping / QuickBooks Basics</span></div>
+      </div>
+    </section>
+
+    <section class="reveal" id="process">
+      <div class="wrap">
+        <div class="section-tag">Process</div>
+        <h2>How we’ll work together.</h2>
+        <p class="lead">A simple workflow that helps you stay consistent without adding more tasks to your plate.</p>
+        <div class="process-grid stagger">
+          <div class="process-card"><h3>Discovery & Goals</h3><p>We talk about your brand, audience, content goals, and what support you need.</p></div>
+          <div class="process-card"><h3>Workflow Setup</h3><p>I organize tools, content calendar, files, posting schedule, and priorities.</p></div>
+          <div class="process-card"><h3>Content Creation</h3><p>I create Shorts, thumbnails, carousels, graphics, captions, blogs, or email content.</p></div>
+          <div class="process-card"><h3>Review & Approval</h3><p>You review the content and request changes before anything goes live.</p></div>
+          <div class="process-card"><h3>Publishing & Management</h3><p>I upload, schedule, format, and organize content across platforms.</p></div>
+          <div class="process-card"><h3>Tracking & Improvement</h3><p>We review what performs best and improve the next content batch.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta reveal" id="contact">
+      <div class="wrap">
+        <div class="cta-box">
+          <div class="section-tag">Let’s Work</div>
+          <h2>Ready to make your content easier to manage?</h2>
+          <p class="lead">Let’s build a simple content system that helps you stay consistent without doing everything yourself.</p>
+          <div class="cta-actions">
+            <a href="mailto:ellajoyignacio03@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> ellajoyignacio03@gmail.com</a>
+            <a href="https://www.linkedin.com/in/ella-joy-ignacio-2561aa291/" target="_blank" rel="noopener" class="btn btn-secondary">View LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <strong>Ella Joy Ignacio</strong>
+      <div class="socials">
+        <a href="https://www.instagram.com/ellaignacio_ig/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/ella-joy-ignacio-2561aa291/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+      <p class="footer-note">© 2026 Ella Joy Ignacio. Content Operations • Website Management • Social Media Support</p>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const toggleIcon = toggle.querySelector('i');
+    const toggleText = toggle.querySelector('span');
+
+    function setTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      localStorage.setItem('ella-theme', theme);
+      const isDark = theme === 'dark';
+      toggleIcon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      toggleText.textContent = isDark ? 'Light' : 'Dark';
+    }
+
+    const savedTheme = localStorage.getItem('ella-theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(savedTheme || (systemPrefersDark ? 'dark' : 'light'));
+
+    toggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+
+    const revealItems = document.querySelectorAll('.reveal, .stagger');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    revealItems.forEach(item => observer.observe(item));
+  </script>
+</body>
+</html>
