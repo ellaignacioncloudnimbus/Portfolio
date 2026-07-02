@@ -19,7 +19,6 @@
 
   *{box-sizing:border-box; margin:0; padding:0;}
   
-  /* Creates a smooth, high-end slow-motion feel on modern browsers */
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
@@ -37,14 +36,13 @@
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
   header {
-    position: sticky; top: 0; z-index: 50;
+    position: sticky; top: 0; z-index: 100;
     background: rgba(250, 247, 242, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
 
-  /* Fixed layout rules to resolve stacking issues in Screenshot 2026-07-02 at 11.02.31 AM.png */
   nav {
     display: flex; align-items: center; justify-content: space-between;
     flex-wrap: wrap; gap: 16px;
@@ -65,14 +63,15 @@
   }
   .nav-cta:hover { background: var(--accent); color: var(--accent-ink); }
 
-  /* Premium reveal animations on scroll */
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
+  /* Smooth scroll entrance animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
-
-  .reveal-init {
-    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .hero { padding: 120px 0 100px; border-bottom: 1px solid var(--border); }
@@ -172,11 +171,39 @@
   .service-card h3 { font-size: 18px; margin-bottom: 10px; font-weight: 700; }
   .service-card p { color: var(--text-dim); font-size: 14.5px; }
 
-  .work { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  /* HORIZONTAL SCROLL STRUCTURAL STYLES */
+  .horizontal-scroll-container {
+    position: relative;
+    height: 300vh; /* Determines how long the user scrolls vertically to move sideways */
+    background: var(--bg-alt);
+  }
+  
+  .sticky-wrapper {
+    position: sticky;
+    top: 80px;
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .scroll-track {
+    display: flex;
+    gap: 40px;
+    padding: 0 max(24px, calc((100vw - 1080px) / 2));
+    width: max-content;
+    will-change: transform;
+    transition: transform 0.1s linear; /* Smooth, slow-motion translation */
+  }
+
   .case-study {
     background: var(--card); border: 1px solid var(--border); border-radius: 20px;
     padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+    width: min(85vw, 900px); /* Locks sizing for ideal sliding presentation */
+    flex-shrink: 0;
   }
+  
   .case-badge {
     display: inline-block; background: rgba(242, 157, 165, 0.15); color: var(--accent);
     font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 999px; margin-bottom: 16px;
@@ -190,7 +217,7 @@
   
   .case-visual {
     background: var(--bg); border: 1px solid var(--border); border-radius: 16px;
-    aspect-ratio: 9/10; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    aspect-ratio: 16/10; display: flex; flex-direction: column; align-items: center; justify-content: center;
     gap: 14px; padding: 20px; transition: all 0.3s ease; cursor: pointer;
   }
   .case-visual:hover { border-color: var(--accent); }
@@ -218,11 +245,15 @@
 
   @media (max-width: 820px){
     nav { justify-content: center; flex-direction: column; gap: 12px; }
-    .about-grid, .case-study, .hero-grid { grid-template-columns: 1fr; }
+    .about-grid, .hero-grid { grid-template-columns: 1fr; }
+    .case-study { grid-template-columns: 1fr; width: 85vw; padding: 24px; }
     .hero-grid .photo-placeholder { order: -1; aspect-ratio: 16/9; }
     .process-list { grid-template-columns: repeat(2, 1fr); }
     .stats { grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .nav-links { display: none; }
+    .horizontal-scroll-container { height: auto; }
+    .sticky-wrapper { position: relative; top: 0; height: auto; overflow: visible; padding: 60px 0; }
+    .scroll-track { flex-direction: column; width: 100%; padding: 0 24px; }
   }
 </style>
 </head>
@@ -241,7 +272,7 @@
   </nav>
 </header>
 
-<section class="hero reveal-init">
+<section class="hero reveal">
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">Social media & YouTube growth</span>
@@ -273,19 +304,18 @@
   </div>
 </section>
 
-<section class="about reveal-init" id="about">
+<section class="about reveal" id="about">
   <div class="wrap about-grid">
     <div>
       <div class="section-tag">About</div>
       <h2>Content operations, handled.</h2>
       <p>I'm Ella Joy — I run social media and YouTube content behind the scenes for creators and small teams who don't have time to plan, edit, and post every day.</p>
-      <p>Right now I manage the Shorts pipeline for a software engineering YouTube channel, turning long-form ideas into short, watchable clips, plus building carousels for social platforms that break down complex topics into simple, swipeable posts.</p>
+      <p>Right now I manage the Shorts pipeline for a software engineering YouTube channel, turning long-form insights into short, watchable clips, plus building carousels for social platforms that break down complex topics into simple, swipeable posts.</p>
       <p>My focus is consistency: a steady content calendar, on-brand editing, and posting that actually keeps a channel growing — not a one-off video that disappears.</p>
-      <p style="font-size:14.5px;">Fun fact: before content, I worked as a collections analyst. Different world entirely — but it's where I learned to stay organized and get things done on deadline. Onsite just for good times these days. 😄</p>
       <div class="photo-gallery">
-        <div class="photo-placeholder small"><div class="ph-icon">◎</div><span>Photo</span></div>
-        <div class="photo-placeholder small"><div class="ph-icon">◎</div><span>Photo</span></div>
-        <div class="photo-placeholder small"><div class="ph-icon">◎</div><span>Photo</span></div>
+        <div class="photo-placeholder small"><div class="ph-icon">◎</div><span>Work Sample 1</span></div>
+        <div class="photo-placeholder small"><div class="ph-icon">◎</div><span>Work Sample 2</span></div>
+        <div class="photo-placeholder small"><div class="ph-icon">◎</div><span>Work Sample 3</span></div>
       </div>
     </div>
     <div class="about-card">
@@ -304,7 +334,7 @@
   </div>
 </section>
 
-<section id="services" class="reveal-init">
+<section id="services" class="reveal">
   <div class="wrap">
     <div class="section-tag">Services</div>
     <h2>What I offer</h2>
@@ -340,47 +370,73 @@
         <h3>Growth tracking</h3>
         <p>Watching the numbers that matter — watch time, saves, shares — and adjusting the content mix to keep growth moving.</p>
       </div>
-      <div class="service-card">
-        <div class="service-icon">✎</div>
-        <h3>Full channel management</h3>
-        <p>End-to-end ownership of a channel's content operations, so it runs like a system instead of a scramble.</p>
-      </div>
     </div>
   </div>
 </section>
 
-<section class="work reveal-init" id="work">
-  <div class="wrap">
-    <div class="section-tag">Client work</div>
-    <h2>Currently managing</h2>
-    <p class="section-intro">A look at the channel I run content operations for.</p>
-    <div class="case-study">
-      <div>
-        <span class="case-badge">YouTube Shorts</span>
-        <h3>James Peralta — Software Engineering</h3>
-        <p>James shares his journey as a Silicon Valley software engineer to help others level up their skills and career. I manage the Shorts pipeline — turning his long-form insights into short, high-retention clips published consistently.</p>
-        <div class="case-meta">
-          <div>
-            <span>@jamesperaltaSWE</span>
-            <small>YouTube handle</small>
+<!-- HORIZONTAL SCROLL WORK SECTION -->
+<div class="horizontal-scroll-container" id="work">
+  <div class="sticky-wrapper">
+    <div class="wrap" style="margin-bottom: 24px;">
+      <div class="section-tag">Client work</div>
+      <h2>Currently managing</h2>
+    </div>
+    
+    <div class="scroll-track" id="scrollTrack">
+      <!-- Project Card 1 -->
+      <div class="case-study">
+        <div>
+          <span class="case-badge">YouTube Shorts Pipeline</span>
+          <h3>James Peralta — Software Engineering</h3>
+          <p>James shares his journey as a Silicon Valley software engineer to help others level up their skills and career. I manage the Shorts pipeline — turning his long-form insights into short, high-retention clips published consistently.</p>
+          <div class="case-meta">
+            <div>
+              <span>@jamesperaltaSWE</span>
+              <small>YouTube handle</small>
+            </div>
+            <div>
+              <span>Shorts & Carousels</span>
+              <small>Content format</small>
+            </div>
           </div>
-          <div>
-            <span>Shorts</span>
-            <small>Content format</small>
-          </div>
+          <a href="https://www.youtube.com/@jamesperaltaSWE/shorts" target="_blank" class="btn-secondary">Watch channel ↗</a>
         </div>
-        <a href="https://www.youtube.com/@jamesperaltaSWE/shorts" target="_blank" class="btn-secondary">Watch the channel ↗</a>
+        <div class="case-visual" onclick="window.open('https://www.youtube.com/@jamesperaltaSWE/shorts', '_blank')">
+          <div class="play-circle">▶</div>
+          <strong>@jamesperaltaSWE</strong>
+          <p>Software engineering tips scaled using optimized short-form editing hooks</p>
+        </div>
       </div>
-      <div class="case-visual" onclick="window.open('https://www.youtube.com/@jamesperaltaSWE/shorts', '_blank')">
-        <div class="play-circle">▶</div>
-        <strong>@jamesperaltaSWE</strong>
-        <p>Software engineering career tips, told in short-form video</p>
+
+      <!-- Project Card 2 (Placeholder for your future business/branding case study) -->
+      <div class="case-study">
+        <div>
+          <span class="case-badge">High-CTR Performance Design</span>
+          <h3>Thumbnail & Identity Systems</h3>
+          <p>A look at visual assets optimized for audience growth. These multi-platform thumbnail strategies combine custom layouts, clear framing, and dynamic typography to capture high click-through rates.</p>
+          <div class="case-meta">
+            <div>
+              <span>+45% Avg</span>
+              <small>Click-Through Lift</small>
+            </div>
+            <div>
+              <span>Figma & Photoshop</span>
+              <small>Production Tools</small>
+            </div>
+          </div>
+          <span class="btn-secondary">Visuals Coming Soon</span>
+        </div>
+        <div class="case-visual">
+          <div class="play-circle" style="background: var(--bg-alt); color: var(--text-dim);">▦</div>
+          <strong>Audience Growth Frameworks</strong>
+          <p>Scroll-stopping layouts engineered for digital content brands.</p>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<section class="process reveal-init" id="process">
+<section class="process reveal" id="process">
   <div class="wrap">
     <div class="section-tag">How it works</div>
     <h2>A simple process</h2>
@@ -410,7 +466,7 @@
   </div>
 </section>
 
-<section class="contact reveal-init" id="contact">
+<section class="contact reveal" id="contact">
   <div class="wrap">
     <div class="section-tag">Get in touch</div>
     <h2>Let's grow your channel.</h2>
@@ -422,6 +478,49 @@
 <footer>
   <div class="wrap">© 2026 Ella Joy Ignacio. All rights reserved.</div>
 </footer>
+
+<script>
+  // 1. HORIZONTAL SCROLL LOGIC
+  const container = document.querySelector('.horizontal-scroll-container');
+  const track = document.getElementById('scrollTrack');
+  
+  function doHorizontalScroll() {
+    if (window.innerWidth > 820) { // Only animate on desktop profiles
+      const containerTop = container.offsetTop;
+      const containerHeight = container.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const scrollPosition = window.pageYOffset;
+      
+      if (scrollPosition >= containerTop && scrollPosition <= (containerTop + containerHeight - windowHeight)) {
+        const scrolledPercentage = (scrollPosition - containerTop) / (containerHeight - windowHeight);
+        const maxTranslate = track.scrollWidth - window.innerWidth;
+        track.style.transform = `translateX(-${scrolledPercentage * maxTranslate}px)`;
+      }
+    } else {
+      track.style.transform = 'none';
+    }
+  }
+
+  window.addEventListener('scroll', doHorizontalScroll);
+  window.addEventListener('resize', doHorizontalScroll);
+
+  // 2. FADE-IN ELEVATION LOGIC (Reveals sections elegantly as you scroll down)
+  const revealElements = document.querySelectorAll('.reveal');
+  
+  function checkReveal() {
+    const triggerBottom = window.innerHeight * 0.85;
+    revealElements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      if (elementTop < triggerBottom) {
+        element.classList.add('active');
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', checkReveal);
+  // Initial check on load
+  checkReveal();
+</script>
 
 </body>
 </html>
