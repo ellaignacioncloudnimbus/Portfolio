@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud Nimbus | Digital Operations & Growth Studio</title>
+  <meta name="description" content="Cloud Nimbus helps creators, founders, and small businesses with website management, YouTube operations, content systems, SEO, virtual assistance, and digital growth support." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #f6fbff;
+      --bg-2: #eaf5ff;
+      --card: rgba(255,255,255,.82);
+      --card-solid: #ffffff;
+      --text: #071827;
+      --muted: #5d7083;
+      --border: rgba(11, 39, 66, .12);
+      --accent: #5ab6ff;
+      --accent-2: #1f7fd1;
+      --navy: #071827;
+      --shadow: 0 24px 70px rgba(11, 39, 66, .13);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --max: 1160px;
+      --transition: 240ms ease;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #050b14;
+      --bg-2: #09182b;
+      --card: rgba(12, 27, 48, .78);
+      --card-solid: #0b1627;
+      --text: #eef8ff;
+      --muted: #9eb4c8;
+      --border: rgba(154, 200, 255, .16);
+      --accent: #69bdff;
+      --accent-2: #3d8ee8;
+      --shadow: 0 24px 70px rgba(0,0,0,.45);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(90,182,255,.22), transparent 36%),
+        radial-gradient(circle at 85% 20%, rgba(61,142,232,.18), transparent 30%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: var(--max); margin: auto; padding: 0 22px; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .logo-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(105,189,255,.22), rgba(61,142,232,.08));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .logo-mark svg { width: 31px; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    section { padding: 96px 0; }
+
+    .hero { padding-top: 110px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--card);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(44px, 7vw, 78px);
+      line-height: .95;
+      letter-spacing: -.06em;
+      margin-bottom: 24px;
+    }
+
+    h1 span, .accent { color: var(--accent); }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1;
+      letter-spacing: -.045em;
+      margin-bottom: 18px;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 680px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 20px;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: var(--transition);
+      border: 1px solid var(--border);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #04101d;
+      box-shadow: 0 18px 45px rgba(90,182,255,.28);
+    }
+
+    .btn-secondary {
+      background: var(--card);
+      color: var(--text);
+    }
+
+    .btn:hover { transform: translateY(-3px); }
+
+    .hero-card {
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, var(--card), rgba(90,182,255,.08));
+      border-radius: var(--radius-xl);
+      padding: 34px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card:before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      background: var(--accent);
+      filter: blur(90px);
+      opacity: .16;
+      right: -70px;
+      top: -50px;
+    }
+
+    .big-logo {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 280px;
+      border-radius: 26px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+
+    .big-logo svg { width: 190px; max-width: 70%; }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--accent);
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 38px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(90,182,255,.12);
+      color: var(--accent);
+      font-size: 21px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 { font-size: 20px; margin-bottom: 10px; }
+    .card p { color: var(--muted); font-size: 15px; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .founder-card {
+      background: linear-gradient(145deg, rgba(90,182,255,.16), var(--card));
+    }
+
+    .founder-name { font-size: 28px; margin-bottom: 8px; }
+    .role { color: var(--accent); font-weight: 900; margin-bottom: 18px; }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .pill {
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255,255,255,.04);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 38px;
+    }
+
+    .step-num {
+      color: var(--accent);
+      font-weight: 900;
+      letter-spacing: .12em;
+      margin-bottom: 12px;
+    }
+
+    .work-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: center;
+      margin-top: 38px;
+    }
+
+    .preview {
+      min-height: 280px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(135deg, rgba(90,182,255,.18), transparent),
+        #071827;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: white;
+      padding: 28px;
+    }
+
+    .preview strong {
+      font-size: 32px;
+      letter-spacing: -.04em;
+    }
+
+    .cta-box {
+      text-align: center;
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at top, rgba(90,182,255,.22), transparent 45%),
+        var(--card);
+      border-radius: var(--radius-xl);
+      padding: 58px 28px;
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      padding: 36px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .socials a {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--accent);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 700ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .nav-links a { display: none; }
+      .hero-grid, .about-grid, .work-card { grid-template-columns: 1fr; }
+      .grid-3, .process { grid-template-columns: 1fr; }
+      .mini-stats { grid-template-columns: 1fr; }
+      section { padding: 70px 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="#top" aria-label="Cloud Nimbus home">
+          <span class="logo-mark">
+            <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M28 58h59c13 0 23-10 23-23S100 12 87 12c-4 0-8 1-12 3C69 6 59 2 48 4 33 6 22 18 22 34v2C11 38 4 46 4 57c0 12 9 21 21 21h18V48l34 30V46" stroke="url(#g)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="g" x1="4" y1="4" x2="112" y2="78" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#A6DCFF"/>
+                  <stop offset="1" stop-color="#2E8FE8"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
+          Cloud Nimbus
+        </a>
+
+        <div class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#founder">Founder</a>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
+          <button class="theme-toggle" id="themeToggle">
+            <i class="fa-solid fa-sun"></i> <span>Light</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero reveal">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="tag"><i class="fa-solid fa-cloud"></i> Digital Operations & Growth Studio</div>
+          <h1>Smart systems, content, and websites for <span>growing businesses.</span></h1>
+          <p class="lead">
+            Cloud Nimbus helps creators, founders, and small businesses stay consistent online through website management, YouTube operations, content systems, SEO, admin support, and digital growth execution.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact"><i class="fa-solid fa-paper-plane"></i> Work With Cloud Nimbus</a>
+            <a class="btn btn-secondary" href="#services"><i class="fa-solid fa-layer-group"></i> View Services</a>
+          </div>
+
+          <div class="mini-stats">
+            <div class="stat"><strong>100+</strong><span>short-form clips supported</span></div>
+            <div class="stat"><strong>5+</strong><span>digital areas managed</span></div>
+            <div class="stat"><strong>Solo</strong><span>founder-led support</span></div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="big-logo">
+            <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M28 58h59c13 0 23-10 23-23S100 12 87 12c-4 0-8 1-12 3C69 6 59 2 48 4 33 6 22 18 22 34v2C11 38 4 46 4 57c0 12 9 21 21 21h18V48l34 30V46" stroke="url(#heroG)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="heroG" x1="4" y1="4" x2="112" y2="78" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#D7F0FF"/>
+                  <stop offset=".45" stop-color="#69BDFF"/>
+                  <stop offset="1" stop-color="#2E8FE8"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h3>Systems. Content. Growth.</h3>
+          <p class="lead" style="font-size:15px;">
+            A founder-led digital support studio built to help busy businesses operate smoother, publish faster, and look more professional online.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="reveal">
+      <div class="wrap">
+        <div class="tag">What Cloud Nimbus Offers</div>
+        <h2>Behind-the-scenes support that keeps your business moving.</h2>
+        <p class="lead">For founders, creators, coaches, consultants, and small teams who need reliable digital help without hiring a full-time employee.</p>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon"><i class="fa-solid fa-globe"></i></div>
+            <h3>Website Management</h3>
+            <p>Website updates, page edits, blog uploads, content formatting, basic SEO, and making sure your online presence stays clean and current.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon"><i class="fa-brands fa-youtube"></i></div>
+            <h3>YouTube Operations</h3>
+            <p>Titles, descriptions, timestamps, thumbnails, Shorts, metadata, upload support, scheduling, and content organization.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h3>SEO & Content Strategy</h3>
+            <p>Search-friendly descriptions, hashtags, content ideas, repurposing plans, captions, and simple growth systems for your brand.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon"><i class="fa-solid fa-list-check"></i></div>
+            <h3>Operations & Systems</h3>
+            <p>Content calendars, workflow organization, task tracking, file management, admin support, and simple systems that reduce chaos.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon"><i class="fa-solid fa-photo-film"></i></div>
+            <h3>Social Media Support</h3>
+            <p>Carousels, captions, scheduling, short-form video support, branded graphics, and keeping your social pages active.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon"><i class="fa-solid fa-headset"></i></div>
+            <h3>Virtual Assistance</h3>
+            <p>Inbox support, research, client coordination, admin tasks, basic customer support, and daily business assistance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="founder" class="reveal">
+      <div class="wrap about-grid">
+        <div class="card founder-card">
+          <div class="tag">Founder-Led</div>
+          <h2 class="founder-name">Ella Joy Ignacio</h2>
+          <div class="role">Founder of Cloud Nimbus</div>
+          <p>
+            Cloud Nimbus is currently a solo-founder business, which means clients work directly with me. I handle the strategy, communication, execution, and organization myself.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Based in the Philippines</span>
+            <span class="pill">Remote-friendly</span>
+            <span class="pill">YouTube Support</span>
+            <span class="pill">Website Management</span>
+            <span class="pill">Admin & Operations</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="tag">Why Cloud Nimbus</div>
+          <h2>Clarity above the noise.</h2>
+          <p class="lead">
+            “Cloud” represents remote digital work, online systems, and modern business support. “Nimbus” represents growth, elevation, and movement.
+          </p>
+          <br>
+          <p>
+            Together, Cloud Nimbus means helping businesses rise above messy workflows, inconsistent content, and scattered operations through smarter digital support.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="wrap">
+        <div class="tag">Process</div>
+        <h2>A simple workflow for busy founders.</h2>
+
+        <div class="process">
+          <div class="card">
+            <div class="step-num">01</div>
+            <h3>Discover</h3>
+            <p>We talk about your business, goals, current workload, and where you need the most help.</p>
+          </div>
+
+          <div class="card">
+            <div class="step-num">02</div>
+            <h3>Organize</h3>
+            <p>I help structure your content, files, tasks, priorities, and publishing workflow.</p>
+          </div>
+
+          <div class="card">
+            <div class="step-num">03</div>
+            <h3>Execute</h3>
+            <p>I support the actual work: uploads, edits, content, admin, website updates, and scheduling.</p>
+          </div>
+
+          <div class="card">
+            <div class="step-num">04</div>
+            <h3>Improve</h3>
+            <p>We review what works, clean up the system, and make the next batch smoother.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="reveal">
+      <div class="wrap">
+        <div class="tag">Featured Work</div>
+        <h2>Digital support across content, websites, and operations.</h2>
+
+        <div class="card work-card">
+          <div>
+            <h3>JamesPeralta.com / Software Engineering Creator Support</h3>
+            <p>
+              Website management, YouTube content operations, thumbnails, SEO descriptions, timestamps, Shorts repurposing, TikTok support, and content organization.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="https://jamesperalta.com" target="_blank" rel="noopener">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> View Website
+              </a>
+            </div>
+          </div>
+
+          <div class="preview">
+            <div>
+              <strong>jamesperalta.com</strong>
+              <p style="color:#bcd7ec;margin-top:10px;">Website • YouTube • SEO • Content Ops</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <div class="wrap">
+        <div class="cta-box">
+          <div class="tag">Start Here</div>
+          <h2>Ready to make your business easier to manage?</h2>
+          <p class="lead" style="margin: 0 auto;">
+            Work with Cloud Nimbus for website management, content operations, social media support, and digital systems that help you stay consistent.
+          </p>
+
+          <div class="hero-actions" style="justify-content:center;">
+            <a class="btn btn-primary" href="mailto:ellajoyignacio03@gmail.com">
+              <i class="fa-solid fa-envelope"></i> ellajoyignacio03@gmail.com
+            </a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/ella-joy-ignacio-2561aa291/" target="_blank" rel="noopener">
+              View LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <strong>Cloud Nimbus</strong>
+      <div class="socials">
+        <a href="https://www.instagram.com/ellaignacio_ig/" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/ella-joy-ignacio-2561aa291/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+      </div>
+      <p>© 2026 Cloud Nimbus. Digital Operations • Content Systems • Website Management • Growth Support</p>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const toggleIcon = toggle.querySelector('i');
+    const toggleText = toggle.querySelector('span');
+
+    function setTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      localStorage.setItem('cloud-nimbus-theme', theme);
+      const isDark = theme === 'dark';
+      toggleIcon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      toggleText.textContent = isDark ? 'Light' : 'Dark';
+    }
+
+    const savedTheme = localStorage.getItem('cloud-nimbus-theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(savedTheme || (systemPrefersDark ? 'dark' : 'light'));
+
+    toggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+
+    const revealItems = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealItems.forEach(item => observer.observe(item));
+  </script>
+</body>
+</html>
