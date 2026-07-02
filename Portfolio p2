@@ -1,795 +1,570 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ella Joy Ignacio — YouTube Growth & Content Operations</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ella Joy Ignacio | Content Operations & Social Media Support</title>
+  <meta name="description" content="Ella Joy Ignacio helps creators, founders, and small teams with YouTube operations, short-form content, thumbnails, website management, admin support, and social media management." />
 
-<style>
-  :root {
-    --bg: #faf7f2;        
-    --bg-alt: #f3ede2;    
-    --card: #ffffff;      
-    --border: #e6dcce;    
-    --text: #3d2f28;      
-    --text-dim: #8c7a6b;  
-    --accent: #f29da5;    
-    --accent-dim: #df848d;
-    --accent-ink: #ffffff;
-    --shadow: rgba(61, 47, 39, 0.04);
-    --shadow-hover: rgba(61, 47, 39, 0.09);
-    --radius-lg: 24px;
-    --radius-md: 16px;
-    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-  [data-theme="dark"] {
-    --bg: #0c0a09;        
-    --bg-alt: #141210;    
-    --card: #1a1715;      
-    --border: #2c2521;    
-    --text: #f5f0eb;      
-    --text-dim: #a89a8e;  
-    --accent: #f5aeb5;    
-    --accent-dim: #f29da5;
-    --accent-ink: #1a1715;
-    --shadow: rgba(0, 0, 0, 0.3);
-    --shadow-hover: rgba(0, 0, 0, 0.4);
-  }
+  <style>
+    :root {
+      --bg: #fff9f3;
+      --bg-2: #f7eee4;
+      --card: rgba(255, 255, 255, 0.82);
+      --card-solid: #ffffff;
+      --text: #34231d;
+      --muted: #7d6b5f;
+      --border: rgba(102, 77, 61, 0.14);
+      --accent: #e88394;
+      --accent-2: #9f6bff;
+      --accent-soft: rgba(232, 131, 148, 0.14);
+      --shadow: 0 24px 70px rgba(79, 48, 36, 0.10);
+      --shadow-soft: 0 14px 40px rgba(79, 48, 36, 0.08);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1160px;
+      --transition: 240ms ease;
+    }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; scroll-padding-top: 100px; }
-  body {
-    background: var(--bg); color: var(--text);
-    font-family: "Plus Jakarta Sans", sans-serif;
-    line-height: 1.6; overflow-x: hidden;
-    transition: background var(--transition), color var(--transition);
-  }
-  a { color: inherit; text-decoration: none; }
-  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    html[data-theme="dark"] {
+      --bg: #0d0b0b;
+      --bg-2: #171313;
+      --card: rgba(28, 22, 22, 0.80);
+      --card-solid: #171313;
+      --text: #fff4ec;
+      --muted: #b9a99f;
+      --border: rgba(255, 238, 226, 0.12);
+      --accent: #ff9aaa;
+      --accent-2: #b795ff;
+      --accent-soft: rgba(255, 154, 170, 0.14);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+      --shadow-soft: 0 14px 40px rgba(0, 0, 0, 0.26);
+    }
 
-  header {
-    position: sticky; top: 0; z-index: 1000;
-    background: var(--bg); border-bottom: 1px solid var(--border);
-    transition: background var(--transition), border-color var(--transition);
-  }
-  nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
-  .logo { font-family: "Playfair Display", serif; font-weight: 700; font-size: 22px; }
-  .logo span { color: var(--accent); font-style: italic; font-weight: 400; }
-  
-  .nav-right { display: flex; align-items: center; gap: 24px; }
-  .nav-links { display: flex; gap: 28px; font-size: 14px; font-weight: 500; color: var(--text-dim); }
-  .nav-links a:hover { color: var(--text); }
-  
-  .theme-switch-container {
-    display: flex; align-items: center; gap: 8px;
-    background: var(--bg-alt); padding: 4px 8px; border-radius: 999px;
-    border: 1px solid var(--border); transition: var(--transition);
-  }
-  .theme-toggle-node {
-    background: none; border: none; cursor: pointer;
-    padding: 6px 12px; font-size: 13px; font-weight: 600; border-radius: 999px;
-    color: var(--text-dim); display: flex; align-items: center; gap: 6px; transition: var(--transition);
-  }
-  .theme-toggle-node.active {
-    background: var(--card); color: var(--text); box-shadow: 0 2px 6px var(--shadow);
-  }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top left, var(--accent-soft), transparent 30%),
+        radial-gradient(circle at 85% 12%, rgba(159,107,255,.12), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background var(--transition), color var(--transition);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
 
-  .nav-cta {
-    border: 1px solid var(--accent); color: var(--accent);
-    padding: 10px 20px; border-radius: 999px; font-size: 13px; font-weight: 600;
-  }
-  .nav-cta:hover { background: var(--accent); color: var(--accent-ink); }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--bg) 78%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-family: "Playfair Display", serif; font-size: 24px; font-weight: 800; letter-spacing: -0.03em; }
+    .brand span { color: var(--accent); font-style: italic; }
+    .nav-links { display: flex; gap: 24px; align-items: center; color: var(--muted); font-size: 14px; font-weight: 700; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .theme-toggle {
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 10px 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      box-shadow: var(--shadow-soft);
+      transition: transform var(--transition), border-color var(--transition), background var(--transition);
+    }
+    .theme-toggle:hover { transform: translateY(-2px); border-color: var(--accent); }
 
-  .reveal {
-    opacity: 0; transform: translateY(32px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .reveal.active { opacity: 1; transform: translateY(0); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 13px 20px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition);
+      cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--text); color: var(--bg); box-shadow: var(--shadow-soft); }
+    .btn-primary:hover { background: var(--accent); color: #fff; }
+    .btn-secondary { border-color: var(--border); background: var(--card); color: var(--text); }
+    .btn-secondary:hover { border-color: var(--accent); }
 
-  .hero { padding: 120px 0 80px; border-bottom: 1px solid var(--border); }
-  .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center; }
-  
-  .image-placeholder-frame {
-    background: var(--card); border: 1px dashed var(--border); border-radius: var(--radius-lg);
-    aspect-ratio: 4/5; display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 12px; color: var(--text-dim); font-size: 14px; text-align: center; padding: 24px;
-    box-shadow: 0 10px 30px var(--shadow); position: relative;
-  }
-  .image-placeholder-frame .frame-icon {
-    width: 52px; height: 52px; border-radius: 50%; background: rgba(242, 157, 165, 0.12);
-    color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 20px;
-  }
+    section { padding: 96px 0; }
+    .section-tag { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); font-size: 12px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
+    h1, h2 { font-family: "Playfair Display", serif; letter-spacing: -0.05em; line-height: 1.05; }
+    h1 { font-size: clamp(44px, 8vw, 86px); max-width: 780px; }
+    h2 { font-size: clamp(34px, 5vw, 58px); max-width: 780px; }
+    h3 { line-height: 1.2; }
+    .lead { color: var(--muted); font-size: clamp(17px, 2vw, 20px); max-width: 760px; margin-top: 20px; }
+    .accent { color: var(--accent); font-style: italic; }
 
-  .hero h1 { font-family: "Playfair Display", serif; font-size: clamp(40px, 5.5vw, 64px); font-weight: 700; line-height: 1.1; margin-bottom: 24px; }
-  .hero h1 span.accent { color: var(--accent); font-style: italic; font-weight: 400; }
-  .hero p.sub { font-size: 18px; color: var(--text-dim); max-width: 560px; margin-bottom: 40px; }
+    .hero { padding: 110px 0 80px; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin: 34px 0; }
+    .proof-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
+    .proof-card { border: 1px solid var(--border); background: var(--card); border-radius: var(--radius-md); padding: 20px; box-shadow: var(--shadow-soft); }
+    .proof-card strong { display: block; font-size: 26px; font-weight: 900; }
+    .proof-card span { color: var(--muted); font-size: 13px; font-weight: 700; }
+    .hero-visual { position: relative; }
+    .profile-card {
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, var(--card), color-mix(in srgb, var(--accent-soft) 45%, transparent));
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      min-height: 520px;
+      display: grid;
+      align-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      top: -80px;
+      right: -70px;
+    }
+    .photo-placeholder {
+      border: 1px dashed var(--border);
+      border-radius: 26px;
+      height: 330px;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      background: color-mix(in srgb, var(--card-solid) 70%, transparent);
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 20px;
+      font-weight: 800;
+    }
+    .floating-note {
+      position: absolute;
+      left: -18px;
+      bottom: 72px;
+      background: var(--card-solid);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 14px 16px;
+      box-shadow: var(--shadow-soft);
+      font-size: 13px;
+      font-weight: 800;
+      z-index: 3;
+    }
 
-  .about { background: var(--bg-alt); border-bottom: 1px solid var(--border); }
-  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: start; }
-  .about-text p { color: var(--text-dim); margin-bottom: 20px; font-size: 16.5px; }
-  
-  .premium-snapshot-container {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 32px;
-  }
-  .profile-badge-card {
-    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-md);
-    padding: 20px; box-shadow: 0 4px 12px var(--shadow); transition: var(--transition);
-    display: flex; flex-direction: column; gap: 8px;
-  }
-  .profile-badge-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 20px var(--shadow-hover); }
-  .badge-meta-icon { font-size: 18px; width: max-content; color: var(--accent); }
-  .badge-meta-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); font-weight: 700; margin-bottom: 2px; }
-  .badge-meta-value { font-size: 14.5px; font-weight: 600; color: var(--text); }
+    .about { background: color-mix(in srgb, var(--bg-2) 82%, transparent); border-block: 1px solid var(--border); }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 38px; align-items: start; }
+    .snapshot-card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      position: sticky;
+      top: 102px;
+    }
+    .snapshot-head { display: flex; gap: 18px; align-items: center; margin-bottom: 24px; }
+    .avatar-placeholder { width: 86px; height: 86px; border-radius: 26px; display: grid; place-items: center; border: 1px dashed var(--border); color: var(--muted); background: var(--accent-soft); font-size: 11px; text-align: center; font-weight: 800; }
+    .snapshot-head h3 { font-size: 22px; }
+    .snapshot-head p { color: var(--muted); font-weight: 700; font-size: 14px; }
+    .snapshot-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .mini-card { border: 1px solid var(--border); border-radius: 18px; padding: 16px; background: color-mix(in srgb, var(--card-solid) 78%, transparent); transition: transform var(--transition), border-color var(--transition); }
+    .mini-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .mini-card i { color: var(--accent); margin-bottom: 10px; }
+    .mini-card small { color: var(--muted); display: block; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; font-size: 10px; }
+    .mini-card strong { display: block; font-size: 14px; margin-top: 4px; }
+    .about-copy { border: 1px solid var(--border); border-radius: var(--radius-xl); background: var(--card); padding: 36px; box-shadow: var(--shadow-soft); }
+    .about-copy p { color: var(--muted); margin-top: 18px; font-size: 17px; }
 
-  .bento-matrix { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
-  .bento-block {
-    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px;
-    box-shadow: 0 4px 14px var(--shadow); display: flex; flex-direction: column; justify-content: flex-end;
-    transition: var(--transition); position: relative; min-height: 220px;
-  }
-  .bento-block:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 12px 24px var(--shadow-hover); }
-  .bento-w2 { grid-column: span 2; }
-  .bento-h2 { grid-row: span 2; min-height: 460px; }
-  .bento-graphic-node {
-    width: 44px; height: 44px; border-radius: 12px; background: rgba(242, 157, 165, 0.1);
-    color: var(--accent); display: flex; align-items: center; justify-content: center;
-    font-size: 18px; font-weight: bold; margin-bottom: 24px;
-  }
-  .bento-block h3 { font-family: "Playfair Display", serif; font-size: 22px; font-weight: 700; margin-bottom: 8px; }
-  .bento-block p { color: var(--text-dim); font-size: 14px; line-height: 1.5; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px; }
+    .service-card { border: 1px solid var(--border); background: var(--card); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-soft); min-height: 230px; transition: transform var(--transition), border-color var(--transition); }
+    .service-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+    .icon-chip { width: 48px; height: 48px; border-radius: 16px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; margin-bottom: 20px; font-size: 20px; }
+    .service-card h3 { font-size: 18px; margin-bottom: 10px; }
+    .service-card p { color: var(--muted); font-size: 14.5px; }
 
-  .services-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-  .service-box {
-    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 36px;
-    box-shadow: 0 4px 14px var(--shadow); transition: var(--transition); display: flex; flex-direction: column;
-  }
-  .service-box:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 12px 24px var(--shadow-hover); }
-  .service-index { font-family: "Playfair Display", serif; font-size: 13px; color: var(--accent); font-weight: bold; margin-bottom: 16px; }
-  .service-box h3 { font-size: 19px; font-weight: 700; margin-bottom: 12px; }
-  .service-box p { color: var(--text-dim); font-size: 14.5px; margin-bottom: 24px; flex-grow: 1; }
-  .service-pill-outcome {
-    background: var(--bg-alt); border-radius: 8px; padding: 10px 14px; font-size: 13px;
-    font-weight: 600; color: var(--text); border-left: 3px solid var(--accent);
-  }
+    .workspace { background: color-mix(in srgb, var(--bg-2) 82%, transparent); border-block: 1px solid var(--border); }
+    .workspace-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 44px; }
+    .case-card { border: 1px solid var(--border); background: var(--card); border-radius: var(--radius-xl); padding: 24px; box-shadow: var(--shadow); overflow: hidden; }
+    .preview { border-radius: 24px; overflow: hidden; border: 1px solid var(--border); min-height: 285px; background: #101010; margin-bottom: 24px; position: relative; }
+    .youtube-preview { background: linear-gradient(145deg, #111, #2a171a); display: grid; align-content: end; }
+    .youtube-preview::before { content: "Add James channel thumbnail here"; color: rgba(255,255,255,.5); position: absolute; inset: 0; display: grid; place-items: center; font-weight: 800; font-size: 13px; }
+    .play { position: absolute; width: 68px; height: 68px; border-radius: 50%; background: #ff0033; color: #fff; display: grid; place-items: center; left: 50%; top: 44%; transform: translate(-50%, -50%); box-shadow: 0 20px 50px rgba(255,0,51,.34); z-index: 2; }
+    .yt-bar { position: relative; z-index: 2; background: rgba(0,0,0,.78); padding: 18px; display: flex; gap: 12px; align-items: center; color: #fff; }
+    .yt-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--accent); }
+    .yt-bar span { display: block; color: rgba(255,255,255,.62); font-size: 12px; }
+    .website-preview { background: #090d12; display: flex; flex-direction: column; }
+    .browser-top { background: #f1eee9; padding: 12px; display: flex; align-items: center; gap: 9px; }
+    .dot { width: 10px; height: 10px; background: #b8ada4; border-radius: 50%; }
+    .url { margin-left: 8px; background: #fff; border-radius: 10px; padding: 7px 14px; color: #111; font-size: 12px; font-weight: 900; flex: 1; }
+    .website-body { flex: 1; display: grid; place-items: center; color: #56f18b; text-align: center; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 800; padding: 24px; }
+    .case-card h3 { font-size: 24px; margin-bottom: 8px; }
+    .case-card p { color: var(--muted); margin: 14px 0 22px; }
+    .case-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-  .workspace-showcase { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .mockup-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 16px; }
-  .mockup-case-card {
-    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 40px;
-    box-shadow: 0 10px 30px var(--shadow); display: flex; flex-direction: column; justify-content: space-between;
-    transition: var(--transition);
-  }
-  .mockup-case-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 16px 40px var(--shadow-hover); }
-  .mockup-case-card h3 { font-family: "Playfair Display", serif; font-size: 24px; font-weight: 700; margin-bottom: 6px; }
-  .mockup-case-card .sub-header-link { font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 16px; display: block; }
-  .mockup-case-card p.desc { color: var(--text-dim); font-size: 15px; margin-bottom: 32px; }
-  
-  .visual-canvas-frame {
-    width: 100%; aspect-ratio: 16/10; background: #1b1715; border-radius: 16px;
-    margin-bottom: 32px; border: 1px solid rgba(255,255,255,0.06); overflow: hidden; position: relative;
-  }
-  .yt-render-canvas { display: flex; flex-direction: column; justify-content: flex-end; }
-  .yt-render-interior {
-    position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
-    color: rgba(255,255,255,0.3); font-size: 12px; gap: 8px; background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.8) 100%);
-  }
-  .yt-play-node-icon {
-    width: 52px; height: 52px; background: #ff0000; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px;
-  }
-  .yt-metadata-dock {
-    background: #0f0d0c; padding: 14px 20px; display: flex; align-items: center; gap: 12px; z-index: 5;
-  }
-  .yt-dock-avatar { width: 34px; height: 34px; background: var(--accent); border-radius: 50%; }
-  .yt-dock-text { font-size: 13px; font-weight: 700; color: #ffffff; }
-  .yt-dock-text span { font-size: 11px; color: #8c8178; display: block; font-weight: 400; margin-top: 1px; }
+    .bento-grid { display: grid; grid-template-columns: 1.25fr .75fr 1fr; gap: 18px; margin-top: 44px; }
+    .bento { border: 1px solid var(--border); background: var(--card); border-radius: var(--radius-lg); padding: 24px; min-height: 180px; box-shadow: var(--shadow-soft); transition: transform var(--transition), border-color var(--transition); }
+    .bento:hover { transform: translateY(-5px); border-color: var(--accent); }
+    .bento.big { grid-row: span 2; min-height: 378px; background: linear-gradient(145deg, var(--card), var(--accent-soft)); }
+    .bento.wide { grid-column: span 2; }
+    .bento i { color: var(--accent); font-size: 24px; margin-bottom: 18px; }
+    .bento h3 { font-size: 18px; margin-bottom: 9px; }
+    .bento p { color: var(--muted); font-size: 14px; }
 
-  .web-render-canvas { background: #ffffff; display: flex; flex-direction: column; border: 1px solid var(--border); }
-  .web-window-header { background: #eee8dc; padding: 10px 16px; display: flex; align-items: center; gap: 16px; border-bottom: 1px solid var(--border); }
-  .web-header-circles { display: flex; gap: 5px; }
-  .web-circle-node { width: 8px; height: 8px; background: var(--text-dim); border-radius: 50%; opacity: 0.3; }
-  .web-url-bar-box { background: var(--card); border-radius: 6px; padding: 4px 14px; font-size: 11px; color: var(--text); font-weight: 600; flex-grow: 1; max-width: 260px; border: 1px solid var(--border); }
-  .web-content-viewports { flex-grow: 1; background: #0c0f17; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #42d174; font-family: monospace; font-size: 12px; }
-  [data-theme="dark"] .web-render-canvas { background: #1a1715; }
-  [data-theme="dark"] .web-window-header { background: #26211d; }
+    .experience-list { display: grid; gap: 18px; margin-top: 44px; }
+    .exp-card { display: grid; grid-template-columns: 270px 1fr; gap: 28px; border: 1px solid var(--border); background: var(--card); border-radius: var(--radius-lg); padding: 26px; box-shadow: var(--shadow-soft); }
+    .exp-card h3 { font-size: 20px; }
+    .exp-card p { color: var(--muted); margin-bottom: 16px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tags span { border: 1px solid var(--border); background: color-mix(in srgb, var(--bg-2) 70%, transparent); border-radius: 999px; padding: 7px 12px; color: var(--muted); font-size: 12px; font-weight: 800; }
 
-  .timeline-container { display: flex; flex-direction: column; gap: 24px; }
-  .timeline-row-card {
-    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 40px;
-    display: grid; grid-template-columns: 260px 1fr; gap: 48px; box-shadow: 0 4px 12px var(--shadow);
-  }
-  .timeline-row-card h3 { font-family: "Playfair Display", serif; font-size: 22px; font-weight: 700; }
-  .timeline-row-card p { color: var(--text-dim); font-size: 16px; margin-bottom: 24px; }
-  .timeline-tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
-  .timeline-tag-cloud span { background: var(--bg-alt); border: 1px solid var(--border); font-size: 13px; padding: 6px 14px; border-radius: 999px; font-weight: 500; color: var(--text); }
+    .tools { background: color-mix(in srgb, var(--bg-2) 82%, transparent); border-block: 1px solid var(--border); }
+    .tool-groups { display: grid; gap: 22px; margin-top: 44px; }
+    .tool-group { border: 1px solid var(--border); background: var(--card); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-soft); }
+    .tool-group h3 { margin-bottom: 16px; }
+    .tool-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .tool { display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--border); background: color-mix(in srgb, var(--card-solid) 82%, transparent); border-radius: 15px; padding: 12px 15px; font-weight: 900; font-size: 14px; }
+    .tool i { color: var(--accent); min-width: 18px; text-align: center; }
 
-  .tools-section { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .tool-box-container { margin-bottom: 40px; }
-  .tool-box-container:last-child { margin-bottom: 0; }
-  .tool-box-header { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 20px; font-weight: 700; }
-  .tool-badges-row { display: flex; flex-wrap: wrap; gap: 12px; }
-  .tool-badge-node { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px 20px; display: flex; align-items: center; gap: 10px; box-shadow: 0 2px 6px var(--shadow); }
-  .tool-badge-node .node-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
-  .tool-badge-node span { font-weight: 600; font-size: 14px; }
+    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px; counter-reset: step; }
+    .process-card { counter-increment: step; border: 1px solid var(--border); background: var(--card); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-soft); position: relative; overflow: hidden; }
+    .process-card::before { content: "0" counter(step); font-family: "Playfair Display", serif; position: absolute; right: 18px; top: 8px; color: var(--accent-soft); font-size: 70px; font-weight: 900; line-height: 1; }
+    .process-card h3 { position: relative; font-size: 18px; margin-bottom: 10px; }
+    .process-card p { position: relative; color: var(--muted); font-size: 14.5px; }
 
-  .pipeline-grid-6step { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 32px; }
-  .pipeline-step-card { border-top: 2px solid var(--border); padding-top: 24px; transition: var(--transition); }
-  .pipeline-step-card:hover { border-color: var(--accent); }
-  .pipeline-step-index { font-family: "Playfair Display", serif; font-size: 14px; color: var(--accent); font-weight: 700; margin-bottom: 12px; }
-  .pipeline-step-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
-  .pipeline-step-card p { color: var(--text-dim); font-size: 14.5px; }
+    .cta { text-align: center; }
+    .cta-box { border: 1px solid var(--border); background: linear-gradient(145deg, var(--card), var(--accent-soft)); border-radius: var(--radius-xl); padding: 56px 28px; box-shadow: var(--shadow); }
+    .cta-box h2, .cta-box .lead { margin-inline: auto; }
+    .cta-actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+    footer { padding: 52px 0 32px; border-top: 1px solid var(--border); background: var(--bg-2); text-align: center; }
+    .socials { display: flex; justify-content: center; gap: 12px; margin: 26px 0; }
+    .socials a { width: 48px; height: 48px; border: 1px solid var(--border); background: var(--card); border-radius: 50%; display: grid; place-items: center; color: var(--text); transition: transform var(--transition), background var(--transition); }
+    .socials a:hover { transform: translateY(-4px); background: var(--accent); color: #fff; }
+    .footer-note { color: var(--muted); font-size: 13px; }
 
-  .cta-hub-panel { text-align: center; background: var(--bg); padding: 120px 0; }
-  .cta-hub-box { max-width: 680px; margin: 0 auto; padding: 0 24px; }
-  .cta-hub-panel h2 { font-size: clamp(34px, 5vw, 48px); margin-bottom: 20px; }
-  .cta-hub-panel p { font-size: 18px; color: var(--text-dim); margin-bottom: 40px; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 700ms ease, transform 700ms ease; }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .stagger > * { opacity: 0; transform: translateY(18px); transition: opacity 650ms ease, transform 650ms ease; }
+    .stagger.is-visible > * { opacity: 1; transform: translateY(0); }
+    .stagger.is-visible > *:nth-child(2) { transition-delay: 80ms; }
+    .stagger.is-visible > *:nth-child(3) { transition-delay: 140ms; }
+    .stagger.is-visible > *:nth-child(4) { transition-delay: 200ms; }
+    .stagger.is-visible > *:nth-child(5) { transition-delay: 260ms; }
+    .stagger.is-visible > *:nth-child(6) { transition-delay: 320ms; }
 
-  .contact-footer-dock { background: var(--bg-alt); text-align: center; padding: 80px 0 40px; border-top: 1px solid var(--border); }
-  .footer-social-row { display: flex; justify-content: center; gap: 24px; margin: 40px 0; }
-  .footer-social-badge {
-    width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); display: flex; align-items: center; justify-content: center;
-    font-size: 14px; font-weight: 700; color: var(--text); box-shadow: 0 4px 10px var(--shadow); transition: var(--transition);
-  }
-  .footer-social-badge:hover { border-color: var(--accent); background: var(--accent); color: var(--accent-ink); transform: scale(1.08); }
-  footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; color: var(--text-dim); font-size: 13.5px; background: var(--bg-alt); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+      .reveal, .stagger > * { opacity: 1 !important; transform: none !important; }
+    }
 
-  @media (max-width: 960px) {
-    .hero-grid, .about-grid, .mockup-grid, .timeline-row-card { grid-template-columns: 1fr; gap: 40px; }
-    .bento-matrix { grid-template-columns: repeat(2, 1fr); }
-    .bento-w2 { grid-column: span 1; }
-    .pipeline-grid-6step { grid-template-columns: repeat(2, 1fr); }
-    .hero-grid .image-placeholder-frame { order: -1; aspect-ratio: 16/9; }
-  }
-  @media (max-width: 640px) {
-    .bento-matrix, .pipeline-grid-6step { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-    .stats { grid-template-columns: 1fr; gap: 24px; }
-  }
-</style>
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .hero-grid, .about-grid, .workspace-grid, .exp-card { grid-template-columns: 1fr; }
+      .snapshot-card { position: relative; top: 0; }
+      .services-grid, .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .bento-grid { grid-template-columns: repeat(2, 1fr); }
+      .bento.big, .bento.wide { grid-column: auto; grid-row: auto; min-height: 180px; }
+      .profile-card { min-height: 440px; }
+    }
+    @media (max-width: 680px) {
+      .wrap { width: min(100% - 28px, var(--max)); }
+      nav { min-height: 70px; }
+      .brand { font-size: 20px; }
+      .nav-actions .btn { display: none; }
+      section { padding: 72px 0; }
+      .hero { padding-top: 76px; }
+      .proof-row, .snapshot-grid, .services-grid, .workspace-grid, .bento-grid, .process-grid { grid-template-columns: 1fr; }
+      .about-copy, .snapshot-card, .case-card, .cta-box { padding: 22px; }
+      .preview { min-height: 230px; }
+      .floating-note { display: none; }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <nav class="wrap">
+      <a href="#top" class="brand">Ella Joy <span>Ignacio</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#work">Client Work</a>
+        <a href="#tools">Tools</a>
+        <a href="#process">Process</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode"><i class="fa-solid fa-moon"></i><span>Dark</span></button>
+        <a href="#contact" class="btn btn-primary">Work With Me</a>
+      </div>
+    </nav>
+  </header>
 
-<header>
-  <nav class="wrap">
-    <div class="logo">Ella Joy<span>Ignacio</span></div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#work">Workspace</a>
-      <a href="#experience">Track Record</a>
-      <a href="#process">Workflow</a>
-    </div>
-    <div class="nav-right">
-      <div class="theme-switch-container">
-        <button class="theme-toggle-node" id="lightThemeToggleBtn">☀️ Light</button>
-        <button class="theme-toggle-node" id="darkThemeToggleBtn">🌙 Dark</button>
-      </div>
-      <a href="#contact" class="nav-cta">Let's Talk</a>
-    </div>
-  </nav>
-</header>
-
-<section class="hero reveal">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow-container">Social Media Content Operations</span>
-      <h1>I help creators turn content into <span class="accent">consistent metrics.</span></h1>
-      <p class="sub">High-end operational channel asset management—from retention-driven short-form editing to advanced metadata tracking systems—designed to elevate digital personal brands.</p>
-      <div class="hero-cta">
-        <a href="#contact" class="btn-primary">Start Workspace Project</a>
-        <a href="#work" class="btn-secondary">Inspect Case Studies</a>
-      </div>
-      <div class="stats">
+  <main id="top">
+    <section class="hero reveal">
+      <div class="wrap hero-grid">
         <div>
-          <div class="stat-num">1</div>
-          <div class="stat-label">Active Channel Pipeline</div>
-        </div>
-        <div>
-          <div class="stat-num">100+</div>
-          <div class="stat-label">Repurposed Clips Produced</div>
-        </div>
-        <div>
-          <div class="stat-num">100%</div>
-          <div class="stat-label">End-to-End Execution Continuity</div>
-        </div>
-      </div>
-    </div>
-    <div class="image-placeholder-frame">
-      <div class="frame-icon">◎</div>
-      <span style="font-weight: 600;">[ Add Ella headshot here ]</span>
-    </div>
-  </div>
-</section>
-
-<section class="about reveal" id="about">
-  <div class="wrap about-grid">
-    <div class="about-text">
-      <div class="section-tag">About Me Snapshot</div>
-      <h2>Hi, I’m Ella Joy B. Ignacio</h2>
-      <p>I’m a 24-year-old content operations and social media support specialist based in BGC, Philippines. I graduated with a Bachelor of Science in Business Administration major in Management, and I’ve built experience across YouTube operations, social media management, website support, admin work, customer service, and digital marketing.</p>
-      <p>I work behind the scenes to help creators, founders, and businesses stay consistent online — from creating Shorts and thumbnails to managing content calendars, uploading blogs, supporting email campaigns, and organizing daily workflows.</p>
-      
-      <div class="premium-snapshot-container">
-        <div class="profile-badge-card">
-          <div class="badge-meta-icon">📍</div>
-          <div class="badge-meta-label">Location</div>
-          <div class="badge-meta-value">BGC, Philippines</div>
-        </div>
-        <div class="profile-badge-card">
-          <div class="badge-meta-icon">🎓</div>
-          <div class="badge-meta-label">Education</div>
-          <div class="badge-meta-value">BSBA Major in Management</div>
-        </div>
-        <div class="profile-badge-card">
-          <div class="badge-meta-icon">📱</div>
-          <div class="badge-meta-label">Core Track</div>
-          <div class="badge-meta-value">YouTube & Social Support</div>
-        </div>
-        <div class="profile-badge-card">
-          <div class="badge-meta-icon">💻</div>
-          <div class="badge-meta-label">Digital Admin</div>
-          <div class="badge-meta-value">Website Management</div>
-        </div>
-        <div class="profile-badge-card">
-          <div class="badge-meta-icon">💼</div>
-          <div class="badge-meta-label">Corporate Focus</div>
-          <div class="badge-meta-value">Admin & CSR Experience</div>
-        </div>
-        <div class="profile-badge-card">
-          <div class="badge-meta-icon">🌐</div>
-          <div class="badge-meta-label">Ecosystem</div>
-          <div class="badge-meta-value">Remote-Friendly</div>
-        </div>
-      </div>
-    </div>
-    <div class="image-placeholder-frame" style="background: var(--card); aspect-ratio: 1/1;">
-      <div class="frame-icon">◎</div>
-      <span style="font-weight: 600;">[ Add work sample image here ]</span>
-    </div>
-  </div>
-</section>
-
-<section class="reveal">
-  <div class="wrap">
-    <div class="section-tag">Value Proposition</div>
-    <h2>What I Bring to Every Project</h2>
-    <p class="section-intro">Premium operational execution structured inside modern channel administrative parameters.</p>
-    
-    <div class="bento-matrix">
-      <div class="bento-block bento-w2">
-        <div class="bento-graphic-node">✓</div>
-        <div>
-          <h3>Content Consistency</h3>
-          <p>Enforcing absolute schedule execution timelines across major media matrix channels to maximize audience touchpoints safely.</p>
-        </div>
-      </div>
-      <div class="bento-block">
-        <div class="bento-graphic-node">⚡</div>
-        <div>
-          <h3>Fast Communication</h3>
-          <p>Meticulous messaging responsiveness parameters to ensure remote pipeline sync stays crisp.</p>
-        </div>
-      </div>
-      <div class="bento-block">
-        <div class="bento-graphic-node">▤</div>
-        <div>
-          <h3>Organized Workflows</h3>
-          <p>Structuring clean media pipelines using sophisticated database management software blueprints.</p>
-        </div>
-      </div>
-      <div class="bento-block bento-w2">
-        <div class="bento-graphic-node">◎</div>
-        <div>
-          <h3>Strong Attention to Detail</h3>
-          <p>Polishing out structural textual anomalies and validation typos across client media properties.</p>
-        </div>
-      </div>
-      <div class="bento-block bento-h2">
-        <div class="bento-graphic-node">✦</div>
-        <div>
-          <h3>YouTube & Social Media Understanding</h3>
-          <p>Deep familiarity with algorithmic baseline behavior, user demographic patterns, and retention drop metrics configuration mechanics.</p>
-        </div>
-      </div>
-      <div class="bento-block">
-        <div class="bento-graphic-node">🎨</div>
-        <div>
-          <h3>Creative Editing & Design Support</h3>
-          <p>Drafting high-end layout presentation structures and clickable thumbnail graphical framing compositions.</p>
-        </div>
-      </div>
-      <div class="bento-block">
-        <div class="bento-graphic-node">💼</div>
-        <div>
-          <h3>Admin & Client Support Experience</h3>
-          <p>Managing high-tier operational client ticket documentation and systemic support pipelines cleanly.</p>
-        </div>
-      </div>
-      <div class="bento-block">
-        <div class="bento-graphic-node">🚀</div>
-        <div>
-          <h3>Fast Learner With New Tools</h3>
-          <p>Instant integration agility across modern infrastructure and platform application updates.</p>
-        </div>
-      </div>
-      <div class="bento-block bento-w2">
-        <div class="bento-graphic-node">🔒</div>
-        <div>
-          <h3>Reliable Remote Support</h3>
-          <p>Configuring secure digital backup networks to provide autonomous workspace support logs safely.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="services" class="reveal">
-  <div class="wrap">
-    <div class="section-tag">Operational Capabilities</div>
-    <h2>What I Offer</h2>
-    <p class="section-intro">Every capability is engineered outcome-focused to clear up your execution bottlenecks.</p>
-    
-    <div class="services-layout">
-      <div class="service-box">
-        <div class="service-index">01 // OPS</div>
-        <h3>YouTube Content Operations</h3>
-        <p>Configuring title strategies, asset uploading, metadata organization, and system tracking entries cleanly.</p>
-        <div class="service-pill-outcome">Frees up 6+ creator hours per upload lifecycle</div>
-      </div>
-      <div class="service-box">
-        <div class="service-index">02 // POSTS</div>
-        <h3>Short-Form Video Editing</h3>
-        <p>Converting raw source file sequences into punchy clips engineered with captions, pacing adjustments, and structural hooks.</p>
-        <div class="service-pill-outcome">Transforms raw files into continuous feed assets</div>
-      </div>
-      <div class="service-box">
-        <div class="service-index">03 // DESIGN</div>
-        <h3>Thumbnail Design</h3>
-        <p>Compiling graphic files optimized to capture impressions across competitive presentation frameworks.</p>
-        <div class="service-pill-outcome">Built to support systemic click metrics updates</div>
-      </div>
-      <div class="service-box">
-        <div class="service-index">04 // LEADERSHIP</div>
-        <h3>LinkedIn & Instagram Carousels</h3>
-        <p>Drafting swipeable presentation document structures that break down dense conceptual technical ideas safely.</p>
-        <div class="service-pill-outcome">Establishes authoritative personal brand layouts</div>
-      </div>
-      <div class="service-box">
-        <div class="service-index">05 // MANAGEMENT</div>
-        <h3>Social Media Management</h3>
-        <p>Coordinating core posting timelines, calendar scheduling arrays, and cross-channel database distribution logs.</p>
-        <div class="service-pill-outcome">Maintains timeline visibility without manual effort</div>
-      </div>
-      <div class="service-box">
-        <div class="service-index">06 // ADMIN SITE</div>
-        <h3>Website Management</h3>
-        <p>Updating technical platform pages, cleaning link arrays, formatting system texts, and monitoring dashboard settings.</p>
-        <div class="service-pill-outcome">Ensures domain infrastructure stays fresh</div>
-      </div>
-      <div class="service-box">
-        <div class="service-index">07 // BLOGS</div>
-        <h3>Blog Uploading</h3>
-        <p>Formatting raw copy assets into clean web layouts inside your Content Management System parameters.</p>
-        <div class="service-pill-outcome">Ensures typographic structure logic alignment</div>
-      </div>
-      <div class="service-box">
-        <div class="service-index">08 // CAMPAIGNS</div>
-        <h3>Email Marketing Campaign Support</h3>
-        <p>Structuring text broadcast logs inside deployment tool frameworks to manage audience dispatch pipelines cleanly.</p>
-        <div class="service-pill-outcome">Secures dependable reader interaction avenues</div>
-      </div>
-      <div class="service-box">
-        <div class="service-index">09 // SUPPORT</div>
-        <h3>Admin & Client Support</h3>
-        <p>Processing system documentation lists, organizing interaction tickets, and structuring database files logs.</p>
-        <div class="service-pill-outcome">Stabilizes administrative pipeline operations</div>
-      </div>
-      <div class="service-box">
-        <div class="service-index">10 // GRAPHICS</div>
-        <h3>Graphic Design</h3>
-        <p>Compiling clear brand identity files, presentation visuals, and platform media layout configurations cleanly.</p>
-        <div class="service-pill-outcome">Delivers sharp visual uniformity across channels</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="work" class="workspace-showcase reveal">
-  <div class="wrap">
-    <div class="section-tag">Featured Client Workspace</div>
-    <h2>Featured Client Workspace</h2>
-    <p class="section-intro">Currently supporting content and digital operations for a software engineering creator brand.</p>
-    
-    <div class="mockup-grid">
-      <div class="mockup-case-card">
-        <div>
-          <span class="service-index">PIPELINE FRAMEWORK A</span>
-          <h3>YouTube Channel Management</h3>
-          <span class="sub-header-link">James Peralta — Software Engineering Creator</span>
-          <p class="desc">I support James Peralta’s content workflow through Shorts creation, thumbnail support, content repurposing, SEO titles and descriptions, publishing, and content organization.</p>
-        </div>
-        <div class="visual-canvas-frame yt-render-canvas">
-          <div class="yt-render-interior">
-            <div class="yt-play-node-icon">▶</div>
-            <span style="font-weight: 500; font-size: 11px;">[ Add James channel thumbnail here ]</span>
+          <div class="section-tag"><i class="fa-solid fa-sparkles"></i> Content Operations & Social Media Support</div>
+          <h1>I help creators stay <span class="accent">consistent online</span> without doing everything alone.</h1>
+          <p class="lead">I support YouTube creators, founders, and small teams with Shorts, thumbnails, carousels, website updates, blog uploads, email campaigns, admin work, and social media management.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact"><i class="fa-solid fa-paper-plane"></i> Work With Me</a>
+            <a class="btn btn-secondary" href="#work"><i class="fa-solid fa-play"></i> View Client Work</a>
           </div>
-          <div class="yt-metadata-dock">
-            <div class="yt-dock-avatar"></div>
-            <div class="yt-dock-text">
-              James Peralta
-              <span>@jamesperaltaSWE • System Run Live</span>
+          <div class="proof-row stagger">
+            <div class="proof-card"><strong>100+</strong><span>short-form clips supported</span></div>
+            <div class="proof-card"><strong>5+</strong><span>content areas managed</span></div>
+            <div class="proof-card"><strong>Remote</strong><span>creator & admin support</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="profile-card">
+            <div class="photo-placeholder">Add Ella headshot here</div>
+            <div>
+              <h3>Behind-the-scenes content support for busy creators.</h3>
+              <p style="color: var(--muted); margin-top: 8px;">You create. I help organize, repurpose, publish, and manage the content system.</p>
             </div>
           </div>
+          <div class="floating-note"><i class="fa-solid fa-check"></i> YouTube • Website • Admin • Social</div>
         </div>
-        <a href="https://www.youtube.com/@jamesperaltaSWE" target="_blank" class="btn-primary" style="text-align: center;">Watch Channel</a>
       </div>
+    </section>
 
-      <div class="mockup-case-card">
-        <div>
-          <span class="service-index">PIPELINE FRAMEWORK B</span>
-          <h3>Website Management</h3>
-          <span class="sub-header-link">JamesPeralta.com</span>
-          <p class="desc">I also support website-related content workflows such as blog uploads, website updates, content formatting, digital asset organization, and keeping website sections updated.</p>
-        </div>
-        <div class="visual-canvas-frame web-render-canvas">
-          <div class="web-window-header">
-            <div class="web-header-circles">
-              <div class="web-circle-node"></div>
-              <div class="web-circle-node"></div>
-              <div class="web-circle-node"></div>
+    <section class="about reveal" id="about">
+      <div class="wrap about-grid">
+        <aside class="snapshot-card">
+          <div class="snapshot-head">
+            <div class="avatar-placeholder">Add<br>photo</div>
+            <div>
+              <h3>Ella Joy B. Ignacio</h3>
+              <p>Content Operations & Social Media Support</p>
             </div>
-            <div class="web-url-bar-box">jamesperalta.com</div>
           </div>
-          <div class="web-content-viewports">
-            <span style="color: #616e7a; font-size: 11px;">[ Add website preview image here ]</span>
-            <span style="font-size: 10px; opacity: 0.4;">// Tech Stack Connected</span>
+          <div class="snapshot-grid stagger">
+            <div class="mini-card"><i class="fa-solid fa-location-dot"></i><small>Based in</small><strong>BGC, Philippines</strong></div>
+            <div class="mini-card"><i class="fa-solid fa-graduation-cap"></i><small>Education</small><strong>BSBA Management</strong></div>
+            <div class="mini-card"><i class="fa-brands fa-youtube"></i><small>Focus</small><strong>YouTube Support</strong></div>
+            <div class="mini-card"><i class="fa-solid fa-globe"></i><small>Skill</small><strong>Website Management</strong></div>
+            <div class="mini-card"><i class="fa-solid fa-headset"></i><small>Experience</small><strong>Admin & CSR</strong></div>
+            <div class="mini-card"><i class="fa-solid fa-laptop"></i><small>Setup</small><strong>Remote-Friendly</strong></div>
           </div>
-        </div>
-        <a href="https://jamesperalta.com" target="_blank" class="btn-secondary" style="text-align: center;">Visit Website</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="experience" class="reveal">
-  <div class="wrap">
-    <div class="section-tag">Track Record</div>
-    <h2>Experience That Helps Brands Stay Consistent Online</h2>
-    <p class="section-intro">Combining structural system coordination with administrative data oversight.</p>
-    
-    <div class="timeline-container">
-      <div class="timeline-row-card">
-        <div><h3>YouTube & Content Operations</h3></div>
-        <div>
-          <p>Supporting online creators with reliable digital assets. Specializing in technical shorts formatting, custom asset optimization, title/SEO descriptions tracking, scheduling, and database content organization.</p>
-          <div class="timeline-tag-cloud">
-            <span>YouTube Shorts creation</span><span>Thumbnails</span><span>SEO titles and descriptions</span>
-            <span>Uploading and scheduling</span><span>Content repurposing</span><span>Creator support</span>
+        </aside>
+        <div class="about-copy">
+          <div class="section-tag">About Me Snapshot</div>
+          <h2>Hi, I’m Ella Joy B. Ignacio</h2>
+          <p>I’m a 24-year-old content operations and social media support specialist based in BGC, Philippines. I graduated with a Bachelor of Science in Business Administration major in Management, and I’ve built experience across YouTube operations, social media management, website support, admin work, customer service, and digital marketing.</p>
+          <p>I work behind the scenes to help creators, founders, and businesses stay consistent online — from creating Shorts and thumbnails to managing content calendars, uploading blogs, supporting email campaigns, and organizing daily workflows.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#services">See What I Do</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/ella-joy-ignacio-2561aa291/" target="_blank" rel="noopener">View LinkedIn</a>
           </div>
         </div>
       </div>
-      <div class="timeline-row-card">
-        <div><h3>Social Media Management</h3></div>
-        <div>
-          <p>Deploying targeted brand visuals across multi-channel environments. Engineering structured LinkedIn carousels, writing retentive platform caption text, and organizing long-term publishing content calendars.</p>
-          <div class="timeline-tag-cloud">
-            <span>Instagram content</span><span>TikTok content</span><span>LinkedIn carousels</span>
-            <span>Captions and graphics</span><span>Content planning</span><span>Social media posting</span>
+    </section>
+
+    <section id="services" class="reveal">
+      <div class="wrap">
+        <div class="section-tag">What I Can Help With</div>
+        <h2>Services that save you time and keep your brand active.</h2>
+        <p class="lead">I help you turn ideas, videos, and existing assets into content that is organized, published, and ready for your audience.</p>
+        <div class="services-grid stagger">
+          <div class="service-card"><div class="icon-chip"><i class="fa-brands fa-youtube"></i></div><h3>YouTube Content Operations</h3><p>Shorts, upload support, titles, descriptions, SEO, scheduling, and content organization.</p></div>
+          <div class="service-card"><div class="icon-chip"><i class="fa-solid fa-video"></i></div><h3>Short-Form Video Editing</h3><p>Turning long videos into TikToks, Reels, and Shorts with hooks, captions, and clean pacing.</p></div>
+          <div class="service-card"><div class="icon-chip"><i class="fa-solid fa-image"></i></div><h3>Thumbnail Design</h3><p>Clickable YouTube thumbnail support that matches the creator’s branding and video topic.</p></div>
+          <div class="service-card"><div class="icon-chip"><i class="fa-solid fa-layer-group"></i></div><h3>Carousels & Graphics</h3><p>LinkedIn and Instagram carousel posts, branded visuals, and simple educational graphics.</p></div>
+          <div class="service-card"><div class="icon-chip"><i class="fa-solid fa-share-nodes"></i></div><h3>Social Media Management</h3><p>Posting, scheduling, captions, content calendars, and support across Instagram, TikTok, LinkedIn, and YouTube.</p></div>
+          <div class="service-card"><div class="icon-chip"><i class="fa-solid fa-globe"></i></div><h3>Website Management</h3><p>Website updates, blog uploads, page formatting, link checks, and keeping content updated.</p></div>
+          <div class="service-card"><div class="icon-chip"><i class="fa-solid fa-envelope-open-text"></i></div><h3>Email Campaign Support</h3><p>Email formatting, campaign setup support, content organization, and simple newsletter assistance.</p></div>
+          <div class="service-card"><div class="icon-chip"><i class="fa-solid fa-clipboard-check"></i></div><h3>Admin & Client Support</h3><p>Reports, documentation, client communication, CSR support, and organized daily operations.</p></div>
+          <div class="service-card"><div class="icon-chip"><i class="fa-solid fa-pen-nib"></i></div><h3>Graphic Design</h3><p>Clean social graphics, presentation visuals, and branded content assets using tools like Canva.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace reveal" id="work">
+      <div class="wrap">
+        <div class="section-tag">Featured Client Workspace</div>
+        <h2>Currently supporting James Peralta’s creator brand.</h2>
+        <p class="lead">A premium workspace section that shows both YouTube content operations and website management.</p>
+        <div class="workspace-grid stagger">
+          <article class="case-card">
+            <div class="preview youtube-preview">
+              <div class="play"><i class="fa-solid fa-play"></i></div>
+              <div class="yt-bar"><div class="yt-avatar"></div><strong>James Peralta<span>@jamesperaltaSWE</span></strong></div>
+            </div>
+            <h3>YouTube Channel Management</h3>
+            <p>I support James Peralta’s content workflow through Shorts creation, thumbnail support, content repurposing, SEO titles and descriptions, publishing, and content organization.</p>
+            <div class="case-actions"><a href="https://www.youtube.com/@jamesperaltaSWE" target="_blank" rel="noopener" class="btn btn-primary">Watch Channel</a></div>
+          </article>
+          <article class="case-card">
+            <div class="preview website-preview">
+              <div class="browser-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><div class="url">jamesperalta.com</div></div>
+              <div class="website-body"><div>JAMESPERALTA.COM<br><span style="color:#7d8998;font-size:12px;">Add website preview image here</span></div></div>
+            </div>
+            <h3>Website Management</h3>
+            <p>I also support website-related content workflows such as blog uploads, website updates, content formatting, digital asset organization, and keeping website sections updated.</p>
+            <div class="case-actions"><a href="https://jamesperalta.com" target="_blank" rel="noopener" class="btn btn-secondary">Visit Website</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="wrap">
+        <div class="section-tag">What I Bring</div>
+        <h2>A reliable creative support system, not just random tasks.</h2>
+        <p class="lead">This section is designed as a bento grid so it feels more premium and less boring than a checklist.</p>
+        <div class="bento-grid stagger">
+          <div class="bento big"><i class="fa-solid fa-calendar-check"></i><h3>Content Consistency</h3><p>I help keep your content moving with organized posting, recurring workflows, and clear priorities.</p></div>
+          <div class="bento"><i class="fa-solid fa-bolt"></i><h3>Fast Communication</h3><p>Clear updates, quick replies, and reliable remote collaboration.</p></div>
+          <div class="bento"><i class="fa-solid fa-folder-tree"></i><h3>Organized Workflows</h3><p>Files, content calendars, links, and tasks stay easy to find.</p></div>
+          <div class="bento wide"><i class="fa-solid fa-magnifying-glass"></i><h3>Strong Attention to Detail</h3><p>I check formatting, captions, upload details, links, and visual consistency before things go live.</p></div>
+          <div class="bento"><i class="fa-solid fa-wand-magic-sparkles"></i><h3>Creative Editing & Design</h3><p>Short-form edits, thumbnails, carousels, and branded graphics.</p></div>
+          <div class="bento"><i class="fa-solid fa-chart-line"></i><h3>YouTube & Social Understanding</h3><p>I understand creator workflows, repurposing, thumbnails, hooks, and platform consistency.</p></div>
+          <div class="bento"><i class="fa-solid fa-headset"></i><h3>Admin & Client Support</h3><p>Client communication, reporting, documentation, and operational support.</p></div>
+          <div class="bento wide"><i class="fa-solid fa-laptop-code"></i><h3>Fast Learner With New Tools</h3><p>I can adapt to your current tools and workflow instead of forcing you to change your system.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="reveal">
+      <div class="wrap">
+        <div class="section-tag">Experience</div>
+        <h2>Experience that supports both creative and business operations.</h2>
+        <div class="experience-list stagger">
+          <article class="exp-card"><h3>YouTube & Content Operations</h3><div><p>Supporting creators with Shorts, thumbnails, SEO titles and descriptions, uploads, scheduling, and content repurposing.</p><div class="tags"><span>YouTube Shorts</span><span>Thumbnails</span><span>SEO</span><span>Uploads</span><span>Scheduling</span></div></div></article>
+          <article class="exp-card"><h3>Social Media Management</h3><div><p>Creating and organizing content for Instagram, TikTok, LinkedIn, and YouTube.</p><div class="tags"><span>Instagram</span><span>TikTok</span><span>LinkedIn</span><span>Carousels</span><span>Captions</span></div></div></article>
+          <article class="exp-card"><h3>Website, Blog & Email Support</h3><div><p>Helping with website updates, blog uploads, email campaign support, formatting, and content management.</p><div class="tags"><span>Website Management</span><span>Blog Uploading</span><span>Email Campaigns</span><span>Content Formatting</span></div></div></article>
+          <article class="exp-card"><h3>Admin, Client Support & Real Estate</h3><div><p>Previous real estate collection assistant experience with admin work, client communication, reports, documentation, and customer support.</p><div class="tags"><span>Admin Support</span><span>CSR</span><span>Collections</span><span>Reports</span><span>Real Estate</span></div></div></article>
+          <article class="exp-card"><h3>Bookkeeping & Operations Support</h3><div><p>Experience supporting bookkeeping and business operations tasks using Excel, QuickBooks, and SAP Business One.</p><div class="tags"><span>QuickBooks</span><span>SAP Business One</span><span>Microsoft Excel</span><span>Data Organization</span></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tools reveal" id="tools">
+      <div class="wrap">
+        <div class="section-tag">Tools I Work With</div>
+        <h2>Creative, admin, website, and business tools.</h2>
+        <p class="lead">The logos are kept consistent by using clean icon badges instead of random mismatched image sizes.</p>
+        <div class="tool-groups stagger">
+          <div class="tool-group"><h3>Creative & Content</h3><div class="tool-row"><span class="tool"><i class="fa-solid fa-scissors"></i>CapCut</span><span class="tool"><i class="fa-solid fa-wand-magic-sparkles"></i>OpusClip</span><span class="tool"><i class="fa-solid fa-palette"></i>Canva</span><span class="tool"><i class="fa-solid fa-brain"></i>Claude</span><span class="tool"><i class="fa-solid fa-robot"></i>ChatGPT</span></div></div>
+          <div class="tool-group"><h3>Project Management & Communication</h3><div class="tool-row"><span class="tool"><i class="fa-brands fa-slack"></i>Slack</span><span class="tool"><i class="fa-solid fa-list-check"></i>ClickUp</span><span class="tool"><i class="fa-brands fa-google"></i>Google Workspace</span><span class="tool"><i class="fa-solid fa-note-sticky"></i>Notion</span></div></div>
+          <div class="tool-group"><h3>Social Platforms</h3><div class="tool-row"><span class="tool"><i class="fa-brands fa-youtube"></i>YouTube</span><span class="tool"><i class="fa-brands fa-tiktok"></i>TikTok</span><span class="tool"><i class="fa-brands fa-instagram"></i>Instagram</span><span class="tool"><i class="fa-brands fa-linkedin"></i>LinkedIn</span></div></div>
+          <div class="tool-group"><h3>Business, Admin & CSR</h3><div class="tool-row"><span class="tool"><i class="fa-solid fa-book"></i>QuickBooks</span><span class="tool"><i class="fa-solid fa-building-columns"></i>SAP Business One</span><span class="tool"><i class="fa-solid fa-table"></i>Microsoft Excel</span><span class="tool"><i class="fa-solid fa-phone-volume"></i>Avaya</span><span class="tool"><i class="fa-solid fa-users-gear"></i>CRM / CSR Tools</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="reveal">
+      <div class="wrap">
+        <div class="section-tag">Certifications & Background</div>
+        <h2>Learning areas I can update as I add certificates.</h2>
+        <p class="lead">Keep these as editable placeholders, then replace them with exact LinkedIn certification names later.</p>
+        <div class="tags" style="margin-top:28px"><span>Digital Marketing</span><span>Social Media Management</span><span>Customer Service / CSR Tools</span><span>Business Administration</span><span>Content Creation & Design</span><span>Bookkeeping / QuickBooks Basics</span></div>
+      </div>
+    </section>
+
+    <section class="reveal" id="process">
+      <div class="wrap">
+        <div class="section-tag">Process</div>
+        <h2>How we’ll work together.</h2>
+        <p class="lead">A simple workflow that helps you stay consistent without adding more tasks to your plate.</p>
+        <div class="process-grid stagger">
+          <div class="process-card"><h3>Discovery & Goals</h3><p>We talk about your brand, audience, content goals, and what support you need.</p></div>
+          <div class="process-card"><h3>Workflow Setup</h3><p>I organize tools, content calendar, files, posting schedule, and priorities.</p></div>
+          <div class="process-card"><h3>Content Creation</h3><p>I create Shorts, thumbnails, carousels, graphics, captions, blogs, or email content.</p></div>
+          <div class="process-card"><h3>Review & Approval</h3><p>You review the content and request changes before anything goes live.</p></div>
+          <div class="process-card"><h3>Publishing & Management</h3><p>I upload, schedule, format, and organize content across platforms.</p></div>
+          <div class="process-card"><h3>Tracking & Improvement</h3><p>We review what performs best and improve the next content batch.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta reveal" id="contact">
+      <div class="wrap">
+        <div class="cta-box">
+          <div class="section-tag">Let’s Work</div>
+          <h2>Ready to make your content easier to manage?</h2>
+          <p class="lead">Let’s build a simple content system that helps you stay consistent without doing everything yourself.</p>
+          <div class="cta-actions">
+            <a href="mailto:ellajoyignacio03@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> ellajoyignacio03@gmail.com</a>
+            <a href="https://www.linkedin.com/in/ella-joy-ignacio-2561aa291/" target="_blank" rel="noopener" class="btn btn-secondary">View LinkedIn</a>
           </div>
         </div>
       </div>
-      <div class="timeline-row-card">
-        <div><h3>Website, Blog & Email Support</h3></div>
-        <div>
-          <p>Handling backend content publishing parameters. Routine support updating core system layouts, blog entry uploading, direct-response newsletter formatting, link verification, and content maintenance.</p>
-          <div class="timeline-tag-cloud">
-            <span>Website management</span><span>Blog uploading</span><span>Email campaigns</span>
-            <span>Content formatting</span><span>Digital admin support</span>
-          </div>
-        </div>
-      </div>
-      <div class="timeline-row-card">
-        <div><h3>Admin, Client Support & Real Estate</h3></div>
-        <div>
-          <p>Leveraging deep operational experience from the real estate sector as a collections asset manager. Highly competent across document coordination, client accounts administration, data reporting pipelines, and digital CRM customer workflows.</p>
-          <div class="timeline-tag-cloud">
-            <span>Admin support</span><span>Client communication</span><span>Collection assistance</span>
-            <span>Customer service</span><span>Reports and documentation</span><span>Real estate admin support</span>
-          </div>
-        </div>
-      </div>
-      <div class="timeline-row-card">
-        <div><h3>Bookkeeping & Operations Support</h3></div>
-        <div>
-          <p>Maintaining clear financial operations support logs. Highly accustomed to compiling data within structural business bookkeeping platforms, managing ledger files, and maintaining data reports inside Excel records.</p>
-          <div class="timeline-tag-cloud">
-            <span>QuickBooks</span><span>SAP Business One</span><span>Microsoft Excel</span>
-            <span>Data organization</span><span>Reports</span><span>Operations support</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
+  </main>
 
-<section id="tools" class="tools-section reveal">
-  <div class="wrap">
-    <div class="section-tag">Infrastructure Matrix</div>
-    <h2>Tools I Work With</h2>
-    <p class="section-intro">Modern platforms and applications used to securely map layout parameters.</p>
-    
-    <div class="tool-box-container">
-      <div class="tool-box-header">Creative & Content Repurposing</div>
-      <div class="tool-badges-row">
-        <div class="tool-badge-node"><div class="node-dot"></div><span>CapCut</span></div>
-        <div class="tool-badge-node"><div class="node-dot"></div><span>OpusClip</span></div>
-        <div class="tool-badge-node"><div class="node-dot"></div><span>Canva</span></div>
-        <div class="tool-badge-node"><div class="node-dot"></div><span>Claude</span></div>
-        <div class="tool-badge-node"><div class="node-dot"></div><span>ChatGPT</span></div>
+  <footer>
+    <div class="wrap">
+      <strong>Ella Joy Ignacio</strong>
+      <div class="socials">
+        <a href="https://www.instagram.com/ellaignacio_ig/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/ella-joy-ignacio-2561aa291/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
       </div>
+      <p class="footer-note">© 2026 Ella Joy Ignacio. Content Operations • Website Management • Social Media Support</p>
     </div>
-    <div class="tool-box-container">
-      <div class="tool-box-header">Project Architecture & Communication</div>
-      <div class="tool-badges-row">
-        <div class="tool-badge-node"><div class="node-dot"></div><span>Slack</span></div>
-        <div class="tool-badge-node"><div class="node-dot"></div><span>ClickUp</span></div>
-        <div class="tool-badge-node"><div class="node-dot"></div><span>Google Workspace</span></div>
-        <div class="tool-badge-node"><div class="node-dot"></div><span>Notion</span></div>
-      </div>
-    </div>
-    <div class="tool-box-container">
-      <div class="tool-box-header">Social Media Platforms</div>
-      <div class="tool-badges-row">
-        <div class="tool-badge-node"><div class="node-dot"></div><span>YouTube Content Ops</span></div>
-        <div class="tool-badge-node"><div class="node-dot"></div><span>TikTok Dashboard</span></div>
-        <div class="tool-badge-node"><div class="node-dot"></div><span>Instagram Core</span></div>
-        <div class="tool-badge-node"><div class="node-dot"></div><span>LinkedIn Interface</span></div>
-      </div>
-    </div>
-    <div class="tool-box-container">
-      <div class="tool-box-header">Admin, Corporate Business & Customer Tools</div>
-      <div class="tool-badges-row">
-        <div class="tool-badge-node"><div class="node-dot"></div><span>QuickBooks</span></div>
-        <div class="tool-badge-node"><div class="node-dot"></div><span>SAP Business One</span></div>
-        <div class="tool-badge-node"><div class="node-dot"></div><span>Microsoft Excel</span></div>
-        <div class="tool-badge-node"><div class="node-dot"></div><span>Avaya Infrastructure</span></div>
-        <div class="tool-badge-node"><div class="node-dot"></div><span>CRM Workflow Frameworks</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+  </footer>
 
-<section id="background-certifications" class="reveal">
-  <div class="wrap">
-    <div class="section-tag">Credentials Archive</div>
-    <h2>Certifications & Background</h2>
-    <p class="section-intro">Continuous updates to structural skills across marketing deployment formats and office records administration systems.</p>
-    <div class="timeline-tag-cloud" style="gap: 16px; margin-top: 16px;">
-      <div class="tool-badge-node" style="padding: 20px 32px; font-size: 16px;">📊 Digital Marketing</div>
-      <div class="tool-badge-node" style="padding: 20px 32px; font-size: 16px;">📱 Social Media Management</div>
-      <div class="tool-badge-node" style="padding: 20px 32px; font-size: 16px;">🎧 Customer Service / CSR Tools</div>
-      <div class="tool-badge-node" style="padding: 20px 32px; font-size: 16px;">💼 Business Administration</div>
-      <div class="tool-badge-node" style="padding: 20px 32px; font-size: 16px;">🎨 Content Creation & Design</div>
-      <div class="tool-badge-node" style="padding: 20px 32px; font-size: 16px;">📉 Bookkeeping / QuickBooks Basics</div>
-    </div>
-  </div>
-</section>
+  <script>
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const toggleIcon = toggle.querySelector('i');
+    const toggleText = toggle.querySelector('span');
 
-<section class="reveal" id="process">
-  <div class="wrap">
-    <div class="section-tag">Systemization Structure</div>
-    <h2>How We’ll Work Together</h2>
-    <p class="section-intro">A structural step-by-step pipeline blueprint tailored to integrate smoothly with your operational demands.</p>
-    <div class="pipeline-grid-6step">
-      <div class="pipeline-step-card">
-        <div class="pipeline-step-index">01</div>
-        <h3>Discovery & Goals</h3>
-        <p>We talk about your brand, audience, content goals, and what kind of support you need.</p>
-      </div>
-      <div class="pipeline-step-card">
-        <div class="pipeline-step-index">02</div>
-        <h3>Workflow Setup</h3>
-        <p>I help organize your tools, content calendar, files, posting schedule, and priorities.</p>
-      </div>
-      <div class="pipeline-step-card">
-        <div class="pipeline-step-index">03</div>
-        <h3>Content Creation</h3>
-        <p>I create Shorts, thumbnails, carousels, graphics, captions, blogs, or email content depending on your needs.</p>
-      </div>
-      <div class="pipeline-step-card">
-        <div class="pipeline-step-index">04</div>
-        <h3>Review & Approval</h3>
-        <p>You review the content and request any changes before anything goes live.</p>
-      </div>
-      <div class="pipeline-step-card">
-        <div class="pipeline-step-index">05</div>
-        <h3>Publishing & Management</h3>
-        <p>I help upload, schedule, format, and organize your content across platforms.</p>
-      </div>
-      <div class="pipeline-step-card">
-        <div class="pipeline-step-index">06</div>
-        <h3>Tracking & Improvement</h3>
-        <p>We review what performs best and improve the next batch of content.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-hub-panel reveal">
-  <div class="wrap cta-hub-box">
-    <h2>Ready to make your content easier to manage?</h2>
-    <p>Let’s build a simple content system that helps you stay consistent without doing everything yourself.</p>
-    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-      <a href="#contact" class="btn-primary">Work With Me</a>
-      <a href="https://www.linkedin.com/in/ella-joy-ignacio-2561aa291/" target="_blank" class="btn-secondary">View LinkedIn</a>
-    </div>
-  </div>
-</section>
-
-<section class="contact-footer-dock reveal" id="contact">
-  <div class="wrap">
-    <div class="section-tag">Communication Desk</div>
-    <h2>Let's build your pipeline.</h2>
-    <p style="color: var(--text-dim); margin-bottom: 32px;">Drop an email log to initiate onboarding tracking entries instantly.</p>
-    <a href="mailto:ellajoyignacio03@gmail.com" class="btn-primary">ellajoyignacio03@gmail.com</a>
-    <div class="footer-social-row">
-      <a href="https://www.instagram.com/ellaignacio_ig/" target="_blank" class="footer-social-badge" title="Instagram Connection Active">IG</a>
-      <a href="https://www.linkedin.com/in/ella-joy-ignacio-2561aa291/" target="_blank" class="footer-social-badge" title="LinkedIn Connection Active">LN</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">© 2026 Ella Joy Ignacio. All rights reserved. • Performance Operations System Active</div>
-</footer>
-
-<script>
-  const lightBtn = document.getElementById('lightThemeToggleBtn');
-  const darkBtn = document.getElementById('darkThemeToggleBtn');
-  
-  function applyTheme(themeName) {
-    document.documentElement.setAttribute('data-theme', themeName);
-    localStorage.setItem('theme', themeName);
-    if (themeName === 'dark') {
-      darkBtn.classList.add('active');
-      lightBtn.classList.remove('active');
-    } else {
-      lightBtn.classList.add('active');
-      darkBtn.classList.remove('active');
+    function setTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      localStorage.setItem('ella-theme', theme);
+      const isDark = theme === 'dark';
+      toggleIcon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      toggleText.textContent = isDark ? 'Light' : 'Dark';
     }
-  }
 
-  const cachedThemeSetting = localStorage.getItem('theme');
-  const userSystemDarkActive = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  if (cachedThemeSetting === 'dark' || (!cachedThemeSetting && userSystemDarkActive)) {
-    applyTheme('dark');
-  } else {
-    applyTheme('light');
-  }
+    const savedTheme = localStorage.getItem('ella-theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(savedTheme || (systemPrefersDark ? 'dark' : 'light'));
 
-  lightBtn.addEventListener('click', () => applyTheme('light'));
-  darkBtn.addEventListener('click', () => applyTheme('dark'));
-
-  const scrollElementsNodeList = document.querySelectorAll('.reveal');
-  const observerConfigOptions = { threshold: 0.05, rootMargin: "0px 0px -40px 0px" };
-
-  const runtimeIntersectionObserver = new IntersectionObserver((observedEntries, contentObserver) => {
-    observedEntries.forEach((entryElement, targetIndex) => {
-      if (entryElement.isIntersecting) {
-        setTimeout(() => {
-          entryElement.target.classList.add('active');
-        }, targetIndex * 40);
-        contentObserver.unobserve(entryElement.target);
-      }
+    toggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
     });
-  }, observerConfigOptions);
 
-  scrollElementsNodeList.forEach(activeNode => runtimeIntersectionObserver.observe(activeNode));
-</script>
+    const revealItems = document.querySelectorAll('.reveal, .stagger');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
+    revealItems.forEach(item => observer.observe(item));
+  </script>
 </body>
 </html>
