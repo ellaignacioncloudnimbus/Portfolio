@@ -174,7 +174,7 @@
   /* HORIZONTAL SCROLL STRUCTURAL STYLES */
   .horizontal-scroll-container {
     position: relative;
-    height: 300vh; /* Determines how long the user scrolls vertically to move sideways */
+    height: 300vh;
     background: var(--bg-alt);
   }
   
@@ -194,13 +194,13 @@
     padding: 0 max(24px, calc((100vw - 1080px) / 2));
     width: max-content;
     will-change: transform;
-    transition: transform 0.1s linear; /* Smooth, slow-motion translation */
+    transition: transform 0.1s linear;
   }
 
   .case-study {
     background: var(--card); border: 1px solid var(--border); border-radius: 20px;
     padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
-    width: min(85vw, 900px); /* Locks sizing for ideal sliding presentation */
+    width: min(85vw, 900px);
     flex-shrink: 0;
   }
   
@@ -231,13 +231,46 @@
   .case-visual p { color: var(--text-dim); font-size: 13px; text-align: center; }
   .case-visual strong { color: var(--text); font-size: 15px; }
 
+  /* DYNAMIC EXPERIENCE GRID & TOOL STYLES */
+  .experience-grid {
+    display: flex; flex-direction: column; gap: 32px; margin-top: 24px;
+  }
+  .exp-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 36px;
+    display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: start; transition: all 0.3s ease;
+  }
+  .exp-card:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(61,47,39,0.03); border-color: var(--accent); }
+  .exp-meta h3 { font-family: "Didot", "Bodoni MT", Georgia, serif; font-size: 22px; font-weight: 700; line-height: 1.3; color: var(--text); }
+  .exp-desc p { color: var(--text-dim); font-size: 15.5px; margin-bottom: 20px; }
+  
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .exp-tags span {
+    background: var(--bg); border: 1px solid var(--border); font-size: 13px; padding: 6px 14px; border-radius: 999px; color: var(--text);
+  }
+
+  .tools-section { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-top: 32px; }
+  .tool-badge {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px;
+    display: flex; align-items: center; gap: 14px; transition: all 0.2s ease;
+  }
+  .tool-badge:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .tool-badge svg { width: 24px; height: 24px; fill: var(--text); flex-shrink: 0; }
+  .tool-badge span { font-weight: 600; font-size: 14.5px; color: var(--text); }
+
+  /* CALL TO ACTION UNIT */
+  .cta-section { text-align: center; background: var(--bg); padding: 100px 0; border-bottom: 1px solid var(--border); }
+  .cta-card { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  .cta-section h2 { font-size: clamp(32px, 5vw, 48px); margin-bottom: 16px; }
+  .cta-section p { font-size: 18px; color: var(--text-dim); max-width: 580px; margin: 0 auto 36px; }
+
   .process-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
   .process-step { border-top: 2px solid var(--accent); padding-top: 18px; }
   .process-num { font-size: 13px; color: var(--accent); font-weight: 700; margin-bottom: 10px; font-family: Georgia, serif; }
   .process-step h3 { font-size: 16px; margin-bottom: 8px; font-weight: 700; }
   .process-step p { color: var(--text-dim); font-size: 14px; }
 
-  .contact { background: var(--bg-alt); border-top: 1px solid var(--border); text-align: center; }
+  .contact { background: var(--bg-alt); text-align: center; }
   .contact h2 { max-width: 600px; margin: 0 auto 16px; }
   .contact p { color: var(--text-dim); max-width: 480px; margin: 0 auto 36px; }
 
@@ -248,6 +281,7 @@
     .about-grid, .hero-grid { grid-template-columns: 1fr; }
     .case-study { grid-template-columns: 1fr; width: 85vw; padding: 24px; }
     .hero-grid .photo-placeholder { order: -1; aspect-ratio: 16/9; }
+    .exp-card { grid-template-columns: 1fr; gap: 16px; padding: 28px; }
     .process-list { grid-template-columns: repeat(2, 1fr); }
     .stats { grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .nav-links { display: none; }
@@ -266,6 +300,7 @@
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
       <a href="#process">Process</a>
     </div>
     <a href="#contact" class="nav-cta">Let's talk</a>
@@ -408,7 +443,7 @@
         </div>
       </div>
 
-      <!-- Project Card 2 (Placeholder for your future business/branding case study) -->
+      <!-- Project Card 2 -->
       <div class="case-study">
         <div>
           <span class="case-badge">High-CTR Performance Design</span>
@@ -435,6 +470,217 @@
     </div>
   </div>
 </div>
+
+<!-- EXPERIENCE SECTION -->
+<section id="experience" class="reveal">
+  <div class="wrap">
+    <div class="section-tag">Track Record</div>
+    <h2>Experience That Helps Brands Stay Consistent Online</h2>
+    <p class="section-intro">I combine backend content operations, cross-platform audience growth mechanics, remote administrative systems, and business support logistics to optimize workflows for creators, founders, and growing enterprises.</p>
+    
+    <div class="experience-grid">
+      <!-- Card A -->
+      <div class="exp-card">
+        <div class="exp-meta">
+          <h3>YouTube & Content Operations</h3>
+        </div>
+        <div class="exp-desc">
+          <p>I support modern digital brands with comprehensive YouTube workflows designed to maximize retention. This includes advanced short-form structural formatting, click-worthy thumbnail design systems, search-optimized SEO assets, publishing calendars, and channel database management.</p>
+          <div class="exp-tags">
+            <span>YouTube Shorts creation</span>
+            <span>Thumbnails</span>
+            <span>SEO titles and descriptions</span>
+            <span>Uploading and scheduling</span>
+            <span>Content repurposing</span>
+            <span>Creator support</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card B -->
+      <div class="exp-card">
+        <div class="exp-meta">
+          <h3>Social Media Management</h3>
+        </div>
+        <div class="exp-desc">
+          <p>I run end-to-end multi-platform operations across Instagram, TikTok, LinkedIn, and YouTube. By engineering high-retention copy, visual micro-assets, multi-slide educational carousels, and strategic publishing plans, I transform core high-level insights into sustainable multi-channel brand ecosystems.</p>
+          <div class="exp-tags">
+            <span>Instagram content</span>
+            <span>TikTok content</span>
+            <span>LinkedIn carousels</span>
+            <span>Captions and graphics</span>
+            <span>Content planning</span>
+            <span>Social media posting</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card C -->
+      <div class="exp-card">
+        <div class="exp-meta">
+          <h3>Website, Blog & Email Marketing Support</h3>
+        </div>
+        <div class="exp-desc">
+          <p>I offer specialized support for digital asset upkeep, handling text layouts, formatting blog posts, updating web systems, and running direct-to-audience email broadcast deployments. I specialize in turning creative workflows into well-structured assets that maintain deep audience loyalty.</p>
+          <div class="exp-tags">
+            <span>Website management</span>
+            <span>Blog uploading</span>
+            <span>Email campaigns</span>
+            <span>Content formatting</span>
+            <span>Digital admin support</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card D -->
+      <div class="exp-card">
+        <div class="exp-meta">
+          <h3>Admin, Client Support & Real Estate Experience</h3>
+        </div>
+        <div class="exp-desc">
+          <p>Bringing structured corporate experience from previous operations as an analytical collections assistant within luxury residential property frameworks, I manage mission-critical customer support operations, client records, administrative tracking, financial reporting pipelines, and sensitive client management tools.</p>
+          <div class="exp-tags">
+            <span>Admin support</span>
+            <span>Client communication</span>
+            <span>Collection assistance</span>
+            <span>Customer service</span>
+            <span>Reports and documentation</span>
+            <span>Real estate admin support</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card E -->
+      <div class="exp-card">
+        <div class="exp-meta">
+          <h3>Bookkeeping & Operations Support</h3>
+        </div>
+        <div class="exp-desc">
+          <p>I handle corporate financial systems, small business data tracking, operational records, and business documentation. I am highly comfortable organizing accounts ledger datasets and providing clean tracking infrastructure to support critical project decisions.</p>
+          <div class="exp-tags">
+            <span>QuickBooks</span>
+            <span>SAP Business One</span>
+            <span>Microsoft Excel</span>
+            <span>Data organization</span>
+            <span>Reports</span>
+            <span>Operations support</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS SECTION -->
+<section id="tools" class="tools-section reveal">
+  <div class="wrap">
+    <div class="section-tag">Ecosystem</div>
+    <h2>Tools I Use</h2>
+    <p class="section-intro">I work with creative, productivity, admin, customer support, and business tools to keep projects organized and moving.</p>
+    
+    <div class="tools-grid">
+      <!-- CapCut -->
+      <div class="tool-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        <span>CapCut</span>
+      </div>
+      <!-- OpusClip -->
+      <div class="tool-badge">
+        <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 childhood 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+        <span>OpusClip</span>
+      </div>
+      <!-- Canva -->
+      <div class="tool-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.5 13h-9c-.83 0-1.5-.67-1.5-1.5v-3c0-.83.67-1.5 1.5-1.5h9c.83 0 1.5.67 1.5 1.5v3c0 .83-.67 1.5-1.5 1.5z"/></svg>
+        <span>Canva</span>
+      </div>
+      <!-- Claude -->
+      <div class="tool-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 5l6.5 11h-13L12 7z"/></svg>
+        <span>Claude</span>
+      </div>
+      <!-- ChatGPT -->
+      <div class="tool-badge">
+        <svg viewBox="0 0 24 24"><path d="M21.74 11.23c.1-.53.07-1.08-.1-1.59a3.42 3.42 0 00-1.42-1.83l.08-.43a3.43 3.43 0 00-.32-2.3 3.42 3.42 0 00-1.74-1.61 3.4 3.4 0 00-2.3-.08l-.34-.23a3.42 3.42 0 00-2.25-.43 3.42 3.42 0 00-1.92 1.4L11 4.06l-.43-.08a3.42 3.42 0 00-2.3.32A3.42 3.42 0 006.66 6l-.23.34a3.42 3.42 0 00-.43 2.25 3.42 3.42 0 001.4 1.92l-.1.43a3.42 3.42 0 00.32 2.3 3.42 3.42 0 001.74 1.61 3.4 3.4 0 002.3.08l.34.23a3.42 3.42 0 002.25.43 3.42 3.42 0 001.92-1.4l.43.08a3.42 3.42 0 002.3-.32 3.42 3.42 0 001.61-1.74l.23-.34a3.42 3.42 0 00.43-2.25l-.08-.43zm-8.62 7.7a1.71 1.71 0 01-1-.58l-2.45-3.55 1.4-1 2.05 3 4.8-6.94 1.4 1-5.2 7.07z"/></svg>
+        <span>ChatGPT</span>
+      </div>
+      <!-- Slack -->
+      <div class="tool-badge">
+        <svg viewBox="0 0 24 24"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523 2.528 2.528 0 0 1-2.522-2.523 2.528 2.528 0 0 1 2.522-2.52h2.52v2.52zm1.261 0a2.528 2.528 0 0 1 2.52-2.52h5.043a2.528 2.528 0 0 1 2.522 2.52v5.042a2.528 2.528 0 0 1-2.522 2.52H8.823a2.528 2.528 0 0 1-2.52-2.52v-5.042zM8.823 5.043a2.528 2.528 0 0 1-2.52-2.522A2.528 2.528 0 0 1 8.823 0a2.528 2.528 0 0 1 2.52 2.521v2.522h-2.52zm0 1.261a2.528 2.528 0 0 1 2.52 2.52v5.043a2.528 2.528 0 0 1-2.52 2.522H3.78a2.528 2.528 0 0 1-2.522-2.522V8.824a2.528 2.528 0 0 1 2.522-2.52h5.043zm10.135 3.78a2.528 2.528 0 0 1 2.52-2.521 2.528 2.528 0 0 1 2.522 2.521 2.528 2.528 0 0 1-2.522 2.52h-2.52V10.084zm-1.262 0a2.528 2.528 0 0 1-2.52 2.52h-5.043a2.528 2.528 0 0 1-2.522-2.52V5.043a2.528 2.528 0 0 1 2.522-2.52h5.043a2.528 2.528 0 0 1 2.52 2.52v5.041zm-3.78 10.134a2.528 2.528 0 0 1 2.52 2.522 2.528 2.528 0 0 1-2.52 2.522 2.528 2.528 0 0 1-2.522-2.522v-2.522h2.522zm0-1.261a2.528 2.528 0 0 1-2.522-2.52v-5.043a2.528 2.528 0 0 1 2.522-2.52h5.043a2.528 2.528 0 0 1 2.522 2.52v5.043a2.528 2.528 0 0 1-2.522 2.52h-5.043z"/></svg>
+        <span>Slack</span>
+      </div>
+      <!-- ClickUp -->
+      <div class="tool-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 10.5l1.5 1.5L12 5.3 20.5 12l1.5-1.5L12 2zm0 6.8L5.3 14l1.4 1.4 5.3-4.1 5.3 4.1 1.4-1.4L12 8.8zm0 6.6l-2 1.6 2 1.6 2-1.6-2-1.6z"/></svg>
+        <span>ClickUp</span>
+      </div>
+      <!-- Google Workspace -->
+      <div class="tool-badge">
+        <svg viewBox="0 0 24 24"><path d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-5.136 4.114A5.53 5.53 0 0 1 8.4 13c0-3.04 2.46-5.514 5.513-5.514 1.44 0 2.7.551 3.651 1.457l3.154-3.154C18.814 3.943 16.551 3 13.913 3 8.357 3 3.9 7.457 3 13s4.457 10 9.913 10c5.734 0 9.969-4.014 9.969-10.134 0-.61-.053-1.12-.157-1.581H12.24z"/></svg>
+        <span>Google Workspace</span>
+      </div>
+      <!-- Notion -->
+      <div class="tool-badge">
+        <svg viewBox="0 0 24 24"><path d="M4.5 3A1.5 1.5 0 0 0 3 4.5v15A1.5 1.5 0 0 0 4.5 21h15a1.5 1.5 0 0 0 1.5-1.5v-15A1.5 1.5 0 0 0 19.5 3h-15zm2.25 3.75h3.562l4.894 7.28V6.75h2.544V17.25h-3.136L9.294 9.422V17.25H6.75V6.75z"/></svg>
+        <span>Notion</span>
+      </div>
+      <!-- QuickBooks -->
+      <div class="tool-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-1 14.5h-2v-5h2zm0-6.5h-2V8h2zm5 6.5h-2v-3.5h-1v3.5h-2v-5h2v.5h1v-.5h2z"/></svg>
+        <span>QuickBooks</span>
+      </div>
+      <!-- SAP Business One -->
+      <div class="tool-badge">
+        <svg viewBox="0 0 24 24"><path d="M19.5 3h-15A1.5 1.5 0 0 0 3 4.5v15A1.5 1.5 0 0 0 4.5 21h15a1.5 1.5 0 0 0 1.5-1.5v-15A1.5 1.5 0 0 0 19.5 3zM10.5 16.5H9v-3H7.5v-1.5H12v1.5h-1.5zm6 0h-3.5V12h1.5v3h2v-3h1.5z"/></svg>
+        <span>SAP Business One</span>
+      </div>
+      <!-- Microsoft Excel -->
+      <div class="tool-badge">
+        <svg viewBox="0 0 24 24"><path d="M21.3 3h-8.5l-.8.8V20.2l.8.8h8.5c.9 0 1.7-.8 1.7-1.7V4.7c0-.9-.8-1.7-1.7-1.7zM11.5 4.3L3.1 5.7c-.6.1-1.1.6-1.1 1.3v10c0 .6.5 1.2 1.1 1.3l8.4 1.4V4.3zm6.3 10.1l-1.9-3.1-1.9 3.1h-2l2.9-4.4-2.7-4.1h2l1.7 2.8 1.7-2.8h2l-2.7 4.1 2.9 4.4h-2z"/></svg>
+        <span>Microsoft Excel</span>
+      </div>
+      <!-- Avaya -->
+      <div class="tool-badge">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <span>Avaya</span>
+      </div>
+      <!-- CRM / CSR Tools -->
+      <div class="tool-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        <span>CRM / CSR Tools</span>
+      </div>
+      <!-- YouTube -->
+      <div class="tool-badge">
+        <svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        <span>YouTube</span>
+      </div>
+      <!-- TikTok -->
+      <div class="tool-badge">
+        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31.01 2.61.03 3.91.05.08 1.53.64 3.01 1.63 4.15 1.15 1.25 2.76 2.01 4.45 2.14v3.86c-1.44-.06-2.86-.54-4.04-1.37a8.55 8.55 0 0 1-2.04-2v10.59c.07 1.86-.48 3.71-1.56 5.21a8.67 8.67 0 0 1-5.69 3.32c-2.3.36-4.68-.13-6.66-1.4a8.77 8.77 0 0 1-3.41-5.18c-.68-2.22-.44-4.62.66-6.66A8.72 8.72 0 0 1 4.54 8.5c2.19-1.07 4.74-1.22 7.04-.41V12a4.7 4.7 0 0 0-3.21.92 4.79 4.79 0 0 0-1.84 2.87c-.22 1.09-.03 2.23.53 3.19A4.81 4.81 0 0 0 9.8 21.1a4.75 4.75 0 0 0 3.97-.24c1.11-.6 1.93-1.63 2.28-2.82.12-.5.18-1.02.17-1.54V.02h-3.7z"/></svg>
+        <span>TikTok</span>
+      </div>
+      <!-- Instagram -->
+      <div class="tool-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        <span>Instagram</span>
+      </div>
+      <!-- LinkedIn -->
+      <div class="tool-badge">
+        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        <span>LinkedIn</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALL TO ACTION SECTION -->
+<section class="cta-section reveal">
+  <div class="wrap cta-card">
+    <h2>Need help staying consistent with your content?</h2>
+    <p>I can help with YouTube operations, social media content, admin support, thumbnails, blogs, email campaigns, and more.</p>
+    <a href="#contact" class="btn-primary">Work With Me</a>
+  </div>
+</section>
 
 <section class="process reveal" id="process">
   <div class="wrap">
