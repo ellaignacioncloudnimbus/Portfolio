@@ -4,21 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ella Joy Ignacio — YouTube Growth & Content Operations</title>
-<!-- Clean Web Fonts Hierarchy -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 
 <style>
-  /* DESIGN FRAMEWORK EMULATOR & ROOT TOKENS */
   :root {
-    --bg: #faf7f2;        /* Premium Cream Milk Tea */
-    --bg-alt: #f3ede2;    /* Soft Warm Contrast Shadow */
-    --card: #ffffff;      /* Pure Crisp Card Bases */
-    --border: #e6dcce;    /* Soft Muted Taupe Binding Line */
-    --text: #3d2f28;      /* Luxe Earth Espresso */
-    --text-dim: #8c7a6b;  /* Mid Tone Slate Sand */
-    --accent: #f29da5;    /* Luxury Aesthetic Dusty Rose Blush Pink */
+    --bg: #faf7f2;        
+    --bg-alt: #f3ede2;    
+    --card: #ffffff;      
+    --border: #e6dcce;    
+    --text: #3d2f28;      
+    --text-dim: #8c7a6b;  
+    --accent: #f29da5;    
     --accent-dim: #df848d;
     --accent-ink: #ffffff;
     --shadow: rgba(61, 47, 39, 0.04);
@@ -29,13 +27,13 @@
   }
 
   [data-theme="dark"] {
-    --bg: #0c0a09;        /* Dark Minimal Obsidian Ink */
-    --bg-alt: #141210;    /* Dark Charcoal Cocoa */
-    --card: #1a1715;      /* Deep Onyx Slate */
-    --border: #2c2521;    /* Earth Bark Divider */
-    --text: #f5f0eb;      /* Cream Silk Contrast */
-    --text-dim: #a89a8e;  /* Ash Muted Taupe Sand */
-    --accent: #f5aeb5;    /* Glowing Pastel Blush Pink */
+    --bg: #0c0a09;        
+    --bg-alt: #141210;    
+    --card: #1a1715;      
+    --border: #2c2521;    
+    --text: #f5f0eb;      
+    --text-dim: #a89a8e;  
+    --accent: #f5aeb5;    
     --accent-dim: #f29da5;
     --accent-ink: #1a1715;
     --shadow: rgba(0, 0, 0, 0.3);
@@ -53,26 +51,19 @@
   a { color: inherit; text-decoration: none; }
   .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 
-  /* NAVIGATION BAR WITH HIGHLY VISIBLE SYSTEM TOGGLE BUTTON */
   header {
     position: sticky; top: 0; z-index: 1000;
     background: var(--bg); border-bottom: 1px solid var(--border);
     transition: background var(--transition), border-color var(--transition);
   }
-  nav {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 0;
-  }
-  .logo {
-    font-family: "Playfair Display", serif; font-weight: 700; font-size: 22px;
-  }
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  .logo { font-family: "Playfair Display", serif; font-weight: 700; font-size: 22px; }
   .logo span { color: var(--accent); font-style: italic; font-weight: 400; }
   
   .nav-right { display: flex; align-items: center; gap: 24px; }
   .nav-links { display: flex; gap: 28px; font-size: 14px; font-weight: 500; color: var(--text-dim); }
   .nav-links a:hover { color: var(--text); }
   
-  /* The Explicit Visual Theme Switcher Control */
   .theme-switch-container {
     display: flex; align-items: center; gap: 8px;
     background: var(--bg-alt); padding: 4px 8px; border-radius: 999px;
@@ -93,29 +84,12 @@
   }
   .nav-cta:hover { background: var(--accent); color: var(--accent-ink); }
 
-  /* SCROLL FADE-UP CLASS STRUCTURES (INTERSECTION OBSERVER) */
   .reveal {
     opacity: 0; transform: translateY(32px);
     transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .reveal.active { opacity: 1; transform: translateY(0); }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-  }
 
-  /* SECTION LABELS */
-  section { padding: 100px 0; }
-  .section-tag {
-    display: inline-block; font-size: 12px; color: var(--accent);
-    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; font-weight: 700;
-  }
-  h2 {
-    font-family: "Playfair Display", serif; font-size: clamp(32px, 4vw, 44px);
-    font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 16px;
-  }
-  .section-intro { color: var(--text-dim); max-width: 620px; font-size: 17px; margin-bottom: 56px; }
-
-  /* HERO AREA ARRANGEMENT */
   .hero { padding: 120px 0 80px; border-bottom: 1px solid var(--border); }
   .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center; }
   
@@ -134,7 +108,6 @@
   .hero h1 span.accent { color: var(--accent); font-style: italic; font-weight: 400; }
   .hero p.sub { font-size: 18px; color: var(--text-dim); max-width: 560px; margin-bottom: 40px; }
 
-  /* REDESIGNED QUICK PROFILE SECTION (PREMIUM PROFILED CARDS) */
   .about { background: var(--bg-alt); border-bottom: 1px solid var(--border); }
   .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: start; }
   .about-text p { color: var(--text-dim); margin-bottom: 20px; font-size: 16.5px; }
@@ -149,23 +122,18 @@
   }
   .profile-badge-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 20px var(--shadow-hover); }
   .badge-meta-icon { font-size: 18px; width: max-content; color: var(--accent); }
-  .badge-meta-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); font-weight: 700; }
+  .badge-meta-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); font-weight: 700; margin-bottom: 2px; }
   .badge-meta-value { font-size: 14.5px; font-weight: 600; color: var(--text); }
 
-  /* REDESIGNED BENTO GRID FOR VALUE PACK PROPOSITION */
-  .bento-matrix {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px;
-  }
+  .bento-matrix { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
   .bento-block {
     background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px;
-    box-shadow: 0 4px 14px var(--shadow); display: flex; flex-direction: column; justify-content: space-between;
+    box-shadow: 0 4px 14px var(--shadow); display: flex; flex-direction: column; justify-content: flex-end;
     transition: var(--transition); position: relative; min-height: 220px;
   }
   .bento-block:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 12px 24px var(--shadow-hover); }
-  
   .bento-w2 { grid-column: span 2; }
   .bento-h2 { grid-row: span 2; min-height: 460px; }
-  
   .bento-graphic-node {
     width: 44px; height: 44px; border-radius: 12px; background: rgba(242, 157, 165, 0.1);
     color: var(--accent); display: flex; align-items: center; justify-content: center;
@@ -174,7 +142,6 @@
   .bento-block h3 { font-family: "Playfair Display", serif; font-size: 22px; font-weight: 700; margin-bottom: 8px; }
   .bento-block p { color: var(--text-dim); font-size: 14px; line-height: 1.5; }
 
-  /* OUTCOME SERVICES MATRIX */
   .services-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
   .service-box {
     background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 36px;
@@ -189,10 +156,8 @@
     font-weight: 600; color: var(--text); border-left: 3px solid var(--accent);
   }
 
-  /* REDESIGNED FEATURED WORKSPACE PREVIEW MOCKUP CARDS */
   .workspace-showcase { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .mockup-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 16px; }
-  
   .mockup-case-card {
     background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 40px;
     box-shadow: 0 10px 30px var(--shadow); display: flex; flex-direction: column; justify-content: space-between;
@@ -203,14 +168,11 @@
   .mockup-case-card .sub-header-link { font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 16px; display: block; }
   .mockup-case-card p.desc { color: var(--text-dim); font-size: 15px; margin-bottom: 32px; }
   
-  /* Canvas Visual Frame Bases */
   .visual-canvas-frame {
-    width: 100%; aspect-ratio: 16/10; background: #14110f; border-radius: 16px;
+    width: 100%; aspect-ratio: 16/10; background: #1b1715; border-radius: 16px;
     margin-bottom: 32px; border: 1px solid rgba(255,255,255,0.06); overflow: hidden; position: relative;
   }
-  
-  /* YouTube Render Framework */
-  .yt-render-canvas { display: flex; flex-direction: column; justify-content: flex-end; background: #1b1715; }
+  .yt-render-canvas { display: flex; flex-direction: column; justify-content: flex-end; }
   .yt-render-interior {
     position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
     color: rgba(255,255,255,0.3); font-size: 12px; gap: 8px; background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.8) 100%);
@@ -218,36 +180,23 @@
   .yt-play-node-icon {
     width: 52px; height: 52px; background: #ff0000; border-radius: 50%;
     display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px;
-    box-shadow: 0 0 20px rgba(255,0,0,0.4);
   }
   .yt-metadata-dock {
     background: #0f0d0c; padding: 14px 20px; display: flex; align-items: center; gap: 12px; z-index: 5;
-    border-top: 1px solid rgba(255,255,255,0.05);
   }
   .yt-dock-avatar { width: 34px; height: 34px; background: var(--accent); border-radius: 50%; }
   .yt-dock-text { font-size: 13px; font-weight: 700; color: #ffffff; }
   .yt-dock-text span { font-size: 11px; color: #8c8178; display: block; font-weight: 400; margin-top: 1px; }
 
-  /* Web Domain Browser Mockup */
   .web-render-canvas { background: #ffffff; display: flex; flex-direction: column; border: 1px solid var(--border); }
-  .web-window-header {
-    background: #eee8dc; padding: 10px 16px; display: flex; align-items: center; gap: 16px;
-    border-bottom: 1px solid var(--border);
-  }
+  .web-window-header { background: #eee8dc; padding: 10px 16px; display: flex; align-items: center; gap: 16px; border-bottom: 1px solid var(--border); }
   .web-header-circles { display: flex; gap: 5px; }
   .web-circle-node { width: 8px; height: 8px; background: var(--text-dim); border-radius: 50%; opacity: 0.3; }
-  .web-url-bar-box {
-    background: var(--card); border-radius: 6px; padding: 4px 14px; font-size: 11px;
-    color: var(--text); font-weight: 600; flex-grow: 1; max-width: 260px; border: 1px solid var(--border);
-  }
-  .web-content-viewports {
-    flex-grow: 1; background: #0c0f17; display: flex; flex-direction: column; align-items: center;
-    justify-content: center; color: #42d174; font-family: monospace; font-size: 12px; gap: 6px;
-  }
+  .web-url-bar-box { background: var(--card); border-radius: 6px; padding: 4px 14px; font-size: 11px; color: var(--text); font-weight: 600; flex-grow: 1; max-width: 260px; border: 1px solid var(--border); }
+  .web-content-viewports { flex-grow: 1; background: #0c0f17; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #42d174; font-family: monospace; font-size: 12px; }
   [data-theme="dark"] .web-render-canvas { background: #1a1715; }
   [data-theme="dark"] .web-window-header { background: #26211d; }
 
-  /* TRACK TIMELINE ROW BLOCKS */
   .timeline-container { display: flex; flex-direction: column; gap: 24px; }
   .timeline-row-card {
     background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 40px;
@@ -256,25 +205,17 @@
   .timeline-row-card h3 { font-family: "Playfair Display", serif; font-size: 22px; font-weight: 700; }
   .timeline-row-card p { color: var(--text-dim); font-size: 16px; margin-bottom: 24px; }
   .timeline-tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
-  .timeline-tag-cloud span {
-    background: var(--bg-alt); border: 1px solid var(--border); font-size: 13px; padding: 6px 14px;
-    border-radius: 999px; font-weight: 500; color: var(--text);
-  }
+  .timeline-tag-cloud span { background: var(--bg-alt); border: 1px solid var(--border); font-size: 13px; padding: 6px 14px; border-radius: 999px; font-weight: 500; color: var(--text); }
 
-  /* TOOL STRIP LOGIC */
   .tools-section { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .tool-box-container { margin-bottom: 40px; }
   .tool-box-container:last-child { margin-bottom: 0; }
   .tool-box-header { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 20px; font-weight: 700; }
   .tool-badges-row { display: flex; flex-wrap: wrap; gap: 12px; }
-  .tool-badge-node {
-    background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px 20px;
-    display: flex; align-items: center; gap: 10px; box-shadow: 0 2px 6px var(--shadow);
-  }
+  .tool-badge-node { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px 20px; display: flex; align-items: center; gap: 10px; box-shadow: 0 2px 6px var(--shadow); }
   .tool-badge-node .node-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
   .tool-badge-node span { font-weight: 600; font-size: 14px; }
 
-  /* 6-STEP WORK PIPELINE BLOCKS */
   .pipeline-grid-6step { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 32px; }
   .pipeline-step-card { border-top: 2px solid var(--border); padding-top: 24px; transition: var(--transition); }
   .pipeline-step-card:hover { border-color: var(--accent); }
@@ -282,7 +223,6 @@
   .pipeline-step-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
   .pipeline-step-card p { color: var(--text-dim); font-size: 14.5px; }
 
-  /* CALL TO ACTION LAYOUTS */
   .cta-hub-panel { text-align: center; background: var(--bg); padding: 120px 0; }
   .cta-hub-box { max-width: 680px; margin: 0 auto; padding: 0 24px; }
   .cta-hub-panel h2 { font-size: clamp(34px, 5vw, 48px); margin-bottom: 20px; }
@@ -290,18 +230,13 @@
 
   .contact-footer-dock { background: var(--bg-alt); text-align: center; padding: 80px 0 40px; border-top: 1px solid var(--border); }
   .footer-social-row { display: flex; justify-content: center; gap: 24px; margin: 40px 0; }
-  
   .footer-social-badge {
-    width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--border);
-    background: var(--card); display: flex; align-items: center; justify-content: center;
-    font-size: 14px; font-weight: 700; color: var(--text); box-shadow: 0 4px 10px var(--shadow);
-    transition: var(--transition);
+    width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: var(--text); box-shadow: 0 4px 10px var(--shadow); transition: var(--transition);
   }
   .footer-social-badge:hover { border-color: var(--accent); background: var(--accent); color: var(--accent-ink); transform: scale(1.08); }
-
   footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; color: var(--text-dim); font-size: 13.5px; background: var(--bg-alt); }
 
-  /* MOBILE MEDIA QUERY ENGINES */
   @media (max-width: 960px) {
     .hero-grid, .about-grid, .mockup-grid, .timeline-row-card { grid-template-columns: 1fr; gap: 40px; }
     .bento-matrix { grid-template-columns: repeat(2, 1fr); }
@@ -329,7 +264,6 @@
       <a href="#process">Workflow</a>
     </div>
     <div class="nav-right">
-      <!-- High Visibility Toggle Segment Switcher Control System -->
       <div class="theme-switch-container">
         <button class="theme-toggle-node" id="lightThemeToggleBtn">☀️ Light</button>
         <button class="theme-toggle-node" id="darkThemeToggleBtn">🌙 Dark</button>
@@ -371,7 +305,6 @@
   </div>
 </section>
 
-<!-- REDESIGNED QUICK PROFILE SECTION (PREMIUM PROFILE CARDS) -->
 <section class="about reveal" id="about">
   <div class="wrap about-grid">
     <div class="about-text">
@@ -413,7 +346,6 @@
         </div>
       </div>
     </div>
-    
     <div class="image-placeholder-frame" style="background: var(--card); aspect-ratio: 1/1;">
       <div class="frame-icon">◎</div>
       <span style="font-weight: 600;">[ Add work sample image here ]</span>
@@ -421,7 +353,6 @@
   </div>
 </section>
 
-<!-- REDESIGNED BENTO GRID LAYOUT SECTION -->
 <section class="reveal">
   <div class="wrap">
     <div class="section-tag">Value Proposition</div>
@@ -429,7 +360,6 @@
     <p class="section-intro">Premium operational execution structured inside modern channel administrative parameters.</p>
     
     <div class="bento-matrix">
-      <!-- Block 1 -->
       <div class="bento-block bento-w2">
         <div class="bento-graphic-node">✓</div>
         <div>
@@ -437,7 +367,6 @@
           <p>Enforcing absolute schedule execution timelines across major media matrix channels to maximize audience touchpoints safely.</p>
         </div>
       </div>
-      <!-- Block 2 -->
       <div class="bento-block">
         <div class="bento-graphic-node">⚡</div>
         <div>
@@ -445,7 +374,6 @@
           <p>Meticulous messaging responsiveness parameters to ensure remote pipeline sync stays crisp.</p>
         </div>
       </div>
-      <!-- Block 3 -->
       <div class="bento-block">
         <div class="bento-graphic-node">▤</div>
         <div>
@@ -453,7 +381,6 @@
           <p>Structuring clean media pipelines using sophisticated database management software blueprints.</p>
         </div>
       </div>
-      <!-- Block 4 -->
       <div class="bento-block bento-w2">
         <div class="bento-graphic-node">◎</div>
         <div>
@@ -461,15 +388,13 @@
           <p>Polishing out structural textual anomalies and validation typos across client media properties.</p>
         </div>
       </div>
-      <!-- Block 5 -->
-      <div class="bento-card bento-block bento-h2">
+      <div class="bento-block bento-h2">
         <div class="bento-graphic-node">✦</div>
         <div>
           <h3>YouTube & Social Media Understanding</h3>
           <p>Deep familiarity with algorithmic baseline behavior, user demographic patterns, and retention drop metrics configuration mechanics.</p>
         </div>
       </div>
-      <!-- Block 6 -->
       <div class="bento-block">
         <div class="bento-graphic-node">🎨</div>
         <div>
@@ -477,7 +402,6 @@
           <p>Drafting high-end layout presentation structures and clickable thumbnail graphical framing compositions.</p>
         </div>
       </div>
-      <!-- Block 7 -->
       <div class="bento-block">
         <div class="bento-graphic-node">💼</div>
         <div>
@@ -485,7 +409,6 @@
           <p>Managing high-tier operational client ticket documentation and systemic support pipelines cleanly.</p>
         </div>
       </div>
-      <!-- Block 8 -->
       <div class="bento-block">
         <div class="bento-graphic-node">🚀</div>
         <div>
@@ -493,7 +416,6 @@
           <p>Instant integration agility across modern infrastructure and platform application updates.</p>
         </div>
       </div>
-      <!-- Block 9 -->
       <div class="bento-block bento-w2">
         <div class="bento-graphic-node">🔒</div>
         <div>
@@ -505,7 +427,6 @@
   </div>
 </section>
 
-<!-- OUTCOME CAPABILITIES SECTION -->
 <section id="services" class="reveal">
   <div class="wrap">
     <div class="section-tag">Operational Capabilities</div>
@@ -577,7 +498,6 @@
   </div>
 </section>
 
-<!-- REDESIGNED FEATURED WORKSPACE PREVIEW MOCKUP CARDS SECTION -->
 <section id="work" class="workspace-showcase reveal">
   <div class="wrap">
     <div class="section-tag">Featured Client Workspace</div>
@@ -585,7 +505,6 @@
     <p class="section-intro">Currently supporting content and digital operations for a software engineering creator brand.</p>
     
     <div class="mockup-grid">
-      <!-- YouTube Channel Mockup Card Frame -->
       <div class="mockup-case-card">
         <div>
           <span class="service-index">PIPELINE FRAMEWORK A</span>
@@ -593,7 +512,6 @@
           <span class="sub-header-link">James Peralta — Software Engineering Creator</span>
           <p class="desc">I support James Peralta’s content workflow through Shorts creation, thumbnail support, content repurposing, SEO titles and descriptions, publishing, and content organization.</p>
         </div>
-        
         <div class="visual-canvas-frame yt-render-canvas">
           <div class="yt-render-interior">
             <div class="yt-play-node-icon">▶</div>
@@ -607,11 +525,9 @@
             </div>
           </div>
         </div>
-        
         <a href="https://www.youtube.com/@jamesperaltaSWE" target="_blank" class="btn-primary" style="text-align: center;">Watch Channel</a>
       </div>
 
-      <!-- Website Browser Mockup Card Frame -->
       <div class="mockup-case-card">
         <div>
           <span class="service-index">PIPELINE FRAMEWORK B</span>
@@ -619,7 +535,6 @@
           <span class="sub-header-link">JamesPeralta.com</span>
           <p class="desc">I also support website-related content workflows such as blog uploads, website updates, content formatting, digital asset organization, and keeping website sections updated.</p>
         </div>
-        
         <div class="visual-canvas-frame web-render-canvas">
           <div class="web-window-header">
             <div class="web-header-circles">
@@ -634,14 +549,12 @@
             <span style="font-size: 10px; opacity: 0.4;">// Tech Stack Connected</span>
           </div>
         </div>
-        
         <a href="https://jamesperalta.com" target="_blank" class="btn-secondary" style="text-align: center;">Visit Website</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- EXPERIENCE SECTION -->
 <section id="experience" class="reveal">
   <div class="wrap">
     <div class="section-tag">Track Record</div>
@@ -659,7 +572,6 @@
           </div>
         </div>
       </div>
-
       <div class="timeline-row-card">
         <div><h3>Social Media Management</h3></div>
         <div>
@@ -670,7 +582,6 @@
           </div>
         </div>
       </div>
-
       <div class="timeline-row-card">
         <div><h3>Website, Blog & Email Support</h3></div>
         <div>
@@ -681,7 +592,6 @@
           </div>
         </div>
       </div>
-
       <div class="timeline-row-card">
         <div><h3>Admin, Client Support & Real Estate</h3></div>
         <div>
@@ -692,7 +602,6 @@
           </div>
         </div>
       </div>
-
       <div class="timeline-row-card">
         <div><h3>Bookkeeping & Operations Support</h3></div>
         <div>
@@ -707,7 +616,6 @@
   </div>
 </section>
 
-<!-- SYSTEM HARDWARE ARCHITECTURE MATRIX -->
 <section id="tools" class="tools-section reveal">
   <div class="wrap">
     <div class="section-tag">Infrastructure Matrix</div>
@@ -724,7 +632,6 @@
         <div class="tool-badge-node"><div class="node-dot"></div><span>ChatGPT</span></div>
       </div>
     </div>
-
     <div class="tool-box-container">
       <div class="tool-box-header">Project Architecture & Communication</div>
       <div class="tool-badges-row">
@@ -734,17 +641,15 @@
         <div class="tool-badge-node"><div class="node-dot"></div><span>Notion</span></div>
       </div>
     </div>
-
     <div class="tool-box-container">
       <div class="tool-box-header">Social Media Platforms</div>
       <div class="tool-badges-row">
         <div class="tool-badge-node"><div class="node-dot"></div><span>YouTube Content Ops</span></div>
         <div class="tool-badge-node"><div class="node-dot"></div><span>TikTok Dashboard</span></div>
         <div class="tool-badge-node"><div class="node-dot"></div><span>Instagram Core</span></div>
-        <div class="tool-badge-item tool-badge-node"><div class="node-dot"></div><span>LinkedIn Interface</span></div>
+        <div class="tool-badge-node"><div class="node-dot"></div><span>LinkedIn Interface</span></div>
       </div>
     </div>
-
     <div class="tool-box-container">
       <div class="tool-box-header">Admin, Corporate Business & Customer Tools</div>
       <div class="tool-badges-row">
@@ -758,13 +663,11 @@
   </div>
 </section>
 
-<!-- CREDENTIALS ARCHIVE -->
 <section id="background-certifications" class="reveal">
   <div class="wrap">
     <div class="section-tag">Credentials Archive</div>
     <h2>Certifications & Background</h2>
     <p class="section-intro">Continuous updates to structural skills across marketing deployment formats and office records administration systems.</p>
-    
     <div class="timeline-tag-cloud" style="gap: 16px; margin-top: 16px;">
       <div class="tool-badge-node" style="padding: 20px 32px; font-size: 16px;">📊 Digital Marketing</div>
       <div class="tool-badge-node" style="padding: 20px 32px; font-size: 16px;">📱 Social Media Management</div>
@@ -776,13 +679,11 @@
   </div>
 </section>
 
-<!-- UPGRADED 6-STEP WORK PIPELINE PROCESS SECTION -->
 <section class="reveal" id="process">
   <div class="wrap">
     <div class="section-tag">Systemization Structure</div>
     <h2>How We’ll Work Together</h2>
     <p class="section-intro">A structural step-by-step pipeline blueprint tailored to integrate smoothly with your operational demands.</p>
-    
     <div class="pipeline-grid-6step">
       <div class="pipeline-step-card">
         <div class="pipeline-step-index">01</div>
@@ -818,7 +719,6 @@
   </div>
 </section>
 
-<!-- FINAL CALL TO ACTION HUB SECTION -->
 <section class="cta-hub-panel reveal">
   <div class="wrap cta-hub-box">
     <h2>Ready to make your content easier to manage?</h2>
@@ -830,14 +730,12 @@
   </div>
 </section>
 
-<!-- FOOTER AND INTERACTIVE ANIMATED SOCIAL BADGES (CORRECT INSTAGRAM ROUTING) -->
 <section class="contact-footer-dock reveal" id="contact">
   <div class="wrap">
     <div class="section-tag">Communication Desk</div>
     <h2>Let's build your pipeline.</h2>
     <p style="color: var(--text-dim); margin-bottom: 32px;">Drop an email log to initiate onboarding tracking entries instantly.</p>
     <a href="mailto:ellajoyignacio03@gmail.com" class="btn-primary">ellajoyignacio03@gmail.com</a>
-    
     <div class="footer-social-row">
       <a href="https://www.instagram.com/ellaignacio_ig/" target="_blank" class="footer-social-badge" title="Instagram Connection Active">IG</a>
       <a href="https://www.linkedin.com/in/ella-joy-ignacio-2561aa291/" target="_blank" class="footer-social-badge" title="LinkedIn Connection Active">LN</a>
@@ -850,14 +748,12 @@
 </footer>
 
 <script>
-  /* 1. VISUAL VISITOR THEME TOGGLE SWITCH SEGMENT CONTROL LOGIC */
   const lightBtn = document.getElementById('lightThemeToggleBtn');
   const darkBtn = document.getElementById('darkThemeToggleBtn');
   
   function applyTheme(themeName) {
     document.documentElement.setAttribute('data-theme', themeName);
     localStorage.setItem('theme', themeName);
-    
     if (themeName === 'dark') {
       darkBtn.classList.add('active');
       lightBtn.classList.remove('active');
@@ -867,10 +763,8 @@
     }
   }
 
-  // Initialization checking sequence
   const cachedThemeSetting = localStorage.getItem('theme');
   const userSystemDarkActive = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
   if (cachedThemeSetting === 'dark' || (!cachedThemeSetting && userSystemDarkActive)) {
     applyTheme('dark');
   } else {
@@ -880,13 +774,8 @@
   lightBtn.addEventListener('click', () => applyTheme('light'));
   darkBtn.addEventListener('click', () => applyTheme('dark'));
 
-  /* 2. INTERSECTION OBSERVER SCROLL ELEVATION CONTROL SYSTEM */
   const scrollElementsNodeList = document.querySelectorAll('.reveal');
-  
-  const observerConfigOptions = {
-    threshold: 0.05,
-    rootMargin: "0px 0px -40px 0px"
-  };
+  const observerConfigOptions = { threshold: 0.05, rootMargin: "0px 0px -40px 0px" };
 
   const runtimeIntersectionObserver = new IntersectionObserver((observedEntries, contentObserver) => {
     observedEntries.forEach((entryElement, targetIndex) => {
